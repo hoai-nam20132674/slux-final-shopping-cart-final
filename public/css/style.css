@@ -11,7 +11,7 @@
 *	Edit this section
 *
 * ======================================================= */
-body {
+body{
   font-family: 'Roboto', sans-serif;
   line-height: 1.8;
   font-size: 16px;
@@ -19,6 +19,9 @@ body {
   color: #848484;
   font-weight: 300;
   overflow-x: hidden;
+}
+h1 h2 h3 h4 h5 h6 p span {
+  font-family: 'Roboto', sans-serif;
 }
 body.fh5co-offcanvas {
   overflow: hidden;
@@ -771,7 +774,7 @@ figure {
 #fh5co-counter-section,
 #fh5co-about-section,
 #fh5co-contact-section {
-  padding: 1em 0;
+  padding: 2em 0;
 }
 
 .fh5co-blog-section footer a {
@@ -1400,11 +1403,17 @@ figure {
   text-transform: uppercase;
   font-size: 15px;
   letter-spacing: 2px;
-  margin-bottom: 2em;
+  padding-bottom: 2em;
   display: block;
   font-weight: 800;
 }
-
+.fh5co-counter-item {
+  border:1px dotted #fff;
+  margin: 15px 0px;
+}
+.counter-item :hover{
+  background: #181d2b;
+}
 .about-wrap {
   border: 2px solid rgba(45, 64, 89, 0.1);
   padding: 100px 30px 30px;
@@ -2575,9 +2584,8 @@ figure {
     /* end footer*/
 
 }
-.over-flow-blog{
-  height: 100px;
-  overflow: auto;
+.blog-description {
+  padding: 10px;
 }
 .over-flow-feeback {
   height: 150px;

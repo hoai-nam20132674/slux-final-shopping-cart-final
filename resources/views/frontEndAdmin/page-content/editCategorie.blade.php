@@ -121,6 +121,7 @@
 											<input type="radio" name="type" id="optionsRadios2" value="1">
 											List Sản phẩm
 										</label>
+										<label>
 										<input type="radio" name="type" value="2" checked>
 											List tin tức
 										</label>
@@ -134,7 +135,8 @@
 											<input type="radio" name="type" id="optionsRadios2" value="1" checked>
 											List Sản phẩm
 										</label>
-										<input type="radio" name="type" value="2">
+										<label>
+											<input type="radio" name="type" value="2">
 											List tin tức
 										</label>
 									

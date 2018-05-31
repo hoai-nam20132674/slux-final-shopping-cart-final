@@ -1,7 +1,6 @@
 @extends('frontEndUser.layout.default2')
 @section('contact')
 	<br>
-	<br>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">

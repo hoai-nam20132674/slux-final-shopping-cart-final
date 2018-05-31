@@ -68,7 +68,7 @@
 										@if($pr->display ==1)
 											<div class="blog-new-item box-shadows">
 												<div class="row">
-								                    <div class="col-sm-12 product-item" style="margin-bottom: 0px;">
+								                    <div class="col-md-12 product-item" style="margin-bottom: 0px;">
 							                            <div class="col-item">
 							                                <div class="photo">
 							                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
@@ -77,14 +77,8 @@
 							                                    <div class="row">
 							                                        <div class="price col-md-12" style="text-align: center;">
 							                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
-							                                            <h5 class="price-text-color">{{$pr->price}}</h5>
+							                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
 							                                        </div>
-							                                    </div>
-							                                    <div class="separator clear-left">
-							                                        <p class="btn-add">
-							                                            <i class="fa fa-shopping-cart"></i><a href="{{URL::route('add-to-cart',$pr->url)}}" class="hidden-sm">MUA NGAY</a></p>
-							                                        <p class="btn-details">
-							                                            <i class="fa fa-list"></i><a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}" class="hidden-sm">XEM THÊM</a></p>
 							                                    </div>
 							                                    <div class="clearfix">
 							                                    </div>
@@ -123,16 +117,14 @@
 					@foreach($blogs as $blog)
 						@if($i<3)
 							@if($blog->display ==1 && $blog->id != $bl->id)
-								<div class="col-md-4">
-									<div class="blog-new-item box-shadows" style="border: 1px solid #d4d4d4;"> 
-				                        <a href="{{url('/'.$blog["url"])}}">
-				                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" class="img-responsive img-box img-thumbnail"> 
-				                        </a>
-					                    <br>
-					                    <br>
-				                    	<h4><a href="{{url('/'.$blog["url"])}}"  style="color: #000;">{{$blog->title}}</a></h4>
-				                        <div class="clear"></div>
-									</div>
+								<div class="col-md-4 col-sm-4 blog-item">
+									<article class="box-shadows"> 
+							          	<figure><a href="{{url('/'.$blog["url"])}}"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
+							          	<div class="blog-description">
+							            	<h4><a href="{{url('/'.$blog["url"])}}"  style="color: #000;">{{$blog->title}}</a></h4>
+							            	<footer><a href="{{url('/'.$blog["url"])}}">Xem chi tiết &raquo;</a></footer>
+							          	</div>
+							        </article>
 								</div>
 							@endif
 						@endif

@@ -59,6 +59,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<!--Add to cart-->
 	<link rel="stylesheet" href="{{asset('addCart/css/style.css')}}"> 
+	<!--feedback-->
+	
+	<link rel='stylesheet prefetch' href='https://thenahid.com/owl.carousel.min.css'>
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+	<link rel="stylesheet" href="{{asset('feedback/css/style.css')}}">
+	<!--End feedback-->
 	<!--End add to cart-->
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -185,6 +191,10 @@
 	    </script>
 	    <script src="{{asset('js/slide-header/main.js')}}"></script> <!-- Resource JavaScrip -->
 	    <script type="text/javascript" src="{{asset('js/support-views.js')}}"></script>
+	    <!--feedback-->
+	    <script src='https://thenahid.com/owl.carousel.min.js'></script>
+    	<script src="{{asset('feedback/js/index.js')}}"></script>
+    	<!--End feedback-->
 	    {!!$system->script!!}
 	</body>
 </html>

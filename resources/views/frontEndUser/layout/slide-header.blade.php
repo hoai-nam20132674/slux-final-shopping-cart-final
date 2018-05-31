@@ -14,7 +14,7 @@
 			</div> <!-- .cd-hero__content -->
 
 			<div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
-				<img src="images/8800.png" alt="tech 1">
+				<img src="images/nokia8800.png" alt="tech 1">
 			</div> <!-- .cd-hero__content -->
 		</li>
 

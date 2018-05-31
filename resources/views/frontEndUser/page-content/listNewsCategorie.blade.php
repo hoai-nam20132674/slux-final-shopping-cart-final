@@ -6,18 +6,16 @@
 	<div class="content-cate">
 		{!!$seo->content!!}
 	</div>
+	<br>
 	<div class="container">
 		<div class="row">
 			<div class="content">	
 				<div class="col-md-9">
 					<div class="breadcrumb-slux">
-						
 					        <div class="btn-group btn-breadcrumb breadcrumb-default">
 					            <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
 					            <a href="{{url('/'.$cate["url"])}}" class="btn btn-default border-bottom" style="text-transform: uppercase;">{{$cate->name}}</a>
-					            
 					        </div>
-						
 					</div>
 					<div class="blog-list">
 						@foreach($blogs as $blog)
@@ -29,7 +27,7 @@
 				                        </a>
 				                    </div> 
 				                    <div class="col-xs-12 col-sm-9 col-md-9">
-				                    	<h4><a id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}">{{$blog->title}}</a></h4>
+				                    	<h3 ><a style="color: #000;" id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}">{{$blog->title}}</a></h3>
 				                        <p>Naturally, we know where Bali's newest restaurants are and what to order, so give that private chef a rest and check out these spanking new haunts.</p>
 				                        <div class="list-group">
 				                            <div class="list-group-item">
@@ -108,15 +106,15 @@
 							<div class="panel-heading text-center" style="text-transform: uppercase;font-weight:700;">Sản phẩm mới</div>
 							<br>
 								<div class="blog-new">
-									<?php 
-										$i=0;
-									?>
-									@foreach($products as $pr)
-										<div class="blog-new-item box-shadows">
-											<div class="row">
+									<div class="row">
+										<?php 
+											$i=0;
+										?>
+										@foreach($products as $pr)
+											<div class="blog-new-item box-shadows">
 												@if($i<3)
 													@if($pr->display ==1)
-									                    <div class="col-sm-12 product-item" style="margin-bottom: 0px;">
+									                    <div class="col-md-12 col-sm-4 product-item" style="margin-bottom: 20px;">
 								                            <div class="col-item">
 								                                <div class="photo">
 								                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
@@ -125,17 +123,10 @@
 								                                    <div class="row">
 								                                        <div class="price col-md-12" style="text-align: center;">
 								                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
-								                                            <h5 class="price-text-color">{{$pr->price}}</h5>
+								                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
 								                                        </div>
 								                                    </div>
-								                                    <div class="separator clear-left">
-								                                        <p class="btn-add">
-								                                            <i class="fa fa-shopping-cart"></i><a " href="{{URL::route('add-to-cart',$pr->url)}}" class="hidden-sm">MUA NGAY</a></p>
-								                                        <p class="btn-details">
-								                                            <i class="fa fa-list"></i><a href="{{url('/'.$pr["url"])}}" id="{{$pr->id}}" class="product-view href="http://www.jquery2dotnet.com" class="hidden-sm">XEM THÊN</a></p>
-								                                    </div>
-								                                    <div class="clearfix">
-								                                    </div>
+								                                    <div class="clearfix"></div>
 								                                </div>
 								                            </div>
 								                        </div>
@@ -144,11 +135,9 @@
 								                        ?>
 								                    @endif
 								                @endif
-						                	</div>
-										</div>
-										<br>
-									@endforeach
-									<br>
+											</div>
+										@endforeach
+									</div>
 								</div>
 							</div>
 						</div>

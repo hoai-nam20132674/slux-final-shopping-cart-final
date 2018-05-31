@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-3 why-choose-item">
+			<div class="col-md-3 col-sm-6 why-choose-item">
 				<div class="flip3D">
 					<div class="back">
 						<img src="{{asset('images/why-choose3.png')}}" >
@@ -20,7 +20,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="col-md-3 why-choose-item">
+			<div class="col-md-3 col-sm-6 why-choose-item">
 				<div class="flip3D">
 					<div class="back">
 						<img src="{{asset('images/why-choose2.png')}}" >
@@ -32,7 +32,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="col-md-3 why-choose-item">
+			<div class="col-md-3 col-sm-6 why-choose-item">
 				<div class="flip3D">
 					<div class="back">
 						<img src="{{asset('images/why-choose1.png')}}" >
@@ -44,7 +44,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="col-md-3 why-choose-item">
+			<div class="col-md-3 col-sm-6 why-choose-item">
 				<div class="flip3D">
 					<div class="back">
 						<img src="{{asset('images/why-choose4.png')}}" >

@@ -1,9 +1,18 @@
 @extends('frontEndUser.layout.default')
 @section('contact')
 	<br>
-	<br>
 	<div class="container">
 	    <div class="row">
+	    	<div class="col-md-12">
+		    	<div class="breadcrumb-slux">
+			        <div class="btn-group btn-breadcrumb breadcrumb-default">
+			            <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-home"></i></a>
+			            <a href="{{url('/'.$cate["url"])}}" class="btn btn-default border-bottom" style="text-transform: uppercase;">{{$cate->name}}</a>
+			        </div>
+				</div>
+			</div>
+			<br>
+			<br>
 	        <div class="col-md-8">
 	            <div class="well well-sm">
 	                <form>

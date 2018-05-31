@@ -6,12 +6,8 @@
 	<div class="content-cate">
 		{!!$seo->content!!}
 	</div>
+	<br>
 	<div class="container">
-<!-- 		<div class="row">
-			<div class="col-md-12"> -->
-				
-<!-- 			</div>
-		</div> -->
 		<div class="row">
 			<div class="content">
 				<div class="col-md-9">
@@ -22,7 +18,7 @@
 				            	 	$categories = App\Categories::whereIn('id',$idCateParents)->get();
 				            ?>
 				            @foreach($categories as $categorie)
-				            	<a href="{{url('/'.$categorie["url"])}}" class="btn btn-default border-bottom">{{$categorie->name}}</a>
+				            	<a href="{{url('/'.$categorie["url"])}}" class="btn btn-default border-bottom" style="text-transform: uppercase;">{{$categorie->name}}</a>
 				            @endforeach
 				        </div>
 					</div>
@@ -46,12 +42,6 @@
 				                                            ?>
 				                                            <h5 class="price-text-color">{!!number_format($pr->price)!!}</h5>
 				                                        </div>
-				                                    </div>
-				                                    <div class="separator clear-left">
-				                                        <p class="btn-add">
-				                                            <i class="fa fa-shopping-cart" style="color: #fff;"></i><a href="{{URL::route('add-to-cart',$pr->url)}}" class="hidden-sm">MUA NGAY</a></p>
-				                                        <p class="btn-details">
-				                                            <i class="fa fa-list" style="color: #fff;"></i><a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}" class="hidden-sm">XEM THÊM</a></p>
 				                                    </div>
 				                                    <div class="clearfix">
 				                                    </div>
@@ -116,51 +106,32 @@
 							<div class="panel-heading text-center" style="font-weight: 700;">Tin tức mới</div>
 							<br>
 							<div class="blog-new">
-								<?php 
-									$i=0;
-								?>
-								@foreach($blogs as $blog)
-									@if($i<3)
-										@if($blog->display ==1)
-											<?php 
-												$user = App\User::where('id',$blog->user_id)->get()->first();
-											?>
-											<div class="blog-new-item box-shadows">
-												<div class="col-item">
-													<div class="row"> 
-									                    <div class="col-xs-12 col-sm-12 col-md-12">
-									                        <a id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog->url)}}">
-									                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt="" class="img-responsive img-box img-thumbnail"> 
-									                        </a>
-									                    </div>
-									                    <br>
-									                    <br>
-									                    <div class="col-xs-12 col-sm-12 col-md-12">
-									                    	<h4><a id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog->url)}}">{{$blog->title}}</a></h4>
-									                        <div class="list-group">
-									                            <div class="list-group-item">
-									                                <div class="row-content">
-									                                    <small>
-									                                        <i class="glyphicon glyphicon-time"></i>{{$blog->created_at}}<span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="#" alt="sintret" title="sintret">{{$user->name}}</a></span>
-									                                        <br>
-									                                    </small>
-									                                </div>
-									                            </div>
-									                        </div>
-									                        <a id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog->url)}}" ><div class="read-more"><button class="btn-primary">Xem thêm</button></div></a>
-									                        <div class="clear"></div>
-									                        
-									                    </div> 
-									                </div>
-									            </div>
-											</div>
-											<br>
-											<?php 
-												$i++;
-											?>
+								<div class="row">
+									<?php 
+										$i=0;
+									?>
+									@foreach($blogs as $blog)
+										@if($i<3)
+											@if($blog->display ==1)
+												<?php 
+													$user = App\User::where('id',$blog->user_id)->get()->first();
+												?>
+								                    <div class="col-md-12 col-sm-4 blog-item" style="margin-bottom: 20px;">
+														<article class="box-shadows"> 
+												          	<figure><a href="{{url('/'.$blog["url"])}}"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
+												          	<div class="blog-description">
+												            	<h4><a href="{{url('/'.$blog["url"])}}"  style="color: #000;">{{$blog->title}}</a></h4>
+												            	<footer><a href="{{url('/'.$blog["url"])}}">Xem chi tiết &raquo;</a></footer>
+												          	</div>
+												        </article>
+													</div>
+												<?php 
+													$i++;
+												?>
+											@endif
 										@endif
-									@endif
-								@endforeach
+									@endforeach
+								</div>
 							</div>
 						</div>
 					</div>

@@ -35,7 +35,7 @@
 					<li><a href="#">Chính sách thanh toán</a></li>
 					<li><a href="#">Chính sách bảo hành</a></li>
 					<li><a href="#">Hướng dẫn mua hàng</a></li>
-					<img src="{{asset('images/bct.png')}}">
+					<a href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=29326"><img src="{{asset('images/bct.png')}}"></a>
 				</ul>
 
 			</div>

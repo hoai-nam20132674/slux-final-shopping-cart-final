@@ -10,7 +10,7 @@
 			<?php 
 				$i=0;
 			?>
-		    <ul class=" blog ">
+		    <!-- <ul class=" blog "> -->
 		    	
 		    	<!-- @foreach($blogs as $blog)
 		    		@if($i<4)
@@ -38,7 +38,7 @@
 			      	@endif
 		    	@endforeach -->
 		    	
-		      	<li class="blog-item">
+		      	<!-- <li class="blog-item">
 			        <article class="box-shadows"> 
 			          	<figure><a href="#"><img src="{{asset('images/blog1.png')}}" alt=""></a>
 				            <figcaption class="group">
@@ -103,7 +103,45 @@
 			        </article>
 		      	</li>
 		      	<div class="clear"></div>
-		    </ul>
+		    </ul> -->
+		<div class="row">
+			<div class="col-md-3 col-sm-3 blog-item">
+				<article class="box-shadows"> 
+		          	<figure><a href="#"><img src="{{asset('images/blog1.png')}}" alt=""></a></figure>
+		          	<div class="blog-description">
+		            	<h4 class="heading">Mua bao da Nokia 8800 cần chú ý điều gì?</h4>
+		            	<footer><a href="#">Xem chi tiết &raquo;</a></footer>
+		          	</div>
+		        </article>
+			</div>
+			<div class="col-md-3 col-sm-3 blog-item">
+				<article class="box-shadows"> 
+		          	<figure><a href="#"><img src="{{asset('images/blog1.png')}}" alt=""></a></figure>
+		          	<div class="blog-description">
+		            	<h4 class="heading">Mua bao da Nokia 8800 cần chú ý điều gì?</h4>
+		            	<footer><a href="#">Xem chi tiết &raquo;</a></footer>
+		          	</div>
+		        </article>
+			</div>
+			<div class="col-md-3 col-sm-3 blog-item">
+				<article class="box-shadows"> 
+		          	<figure><a href="#"><img src="{{asset('images/blog1.png')}}" alt=""></a></figure>
+		          	<div class="blog-description">
+		            	<h4 class="heading">Mua bao da Nokia 8800 cần chú ý điều gì?</h4>
+		            	<footer><a href="#">Xem chi tiết &raquo;</a></footer>
+		          	</div>
+		        </article>
+			</div>
+			<div class="col-md-3 col-sm-3 blog-item">
+				<article class="box-shadows"> 
+		          	<figure><a href="#"><img src="{{asset('images/blog1.png')}}" alt=""></a></figure>
+		          	<div class="blog-description">
+		            	<h4 class="heading">Mua bao da Nokia 8800 cần chú ý điều gì?</h4>
+		            	<footer><a href="#">Xem chi tiết &raquo;</a></footer>
+		          	</div>
+		        </article>
+			</div>
+		</div>
 
 	</div>
 </div>

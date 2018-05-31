@@ -69,7 +69,7 @@
 }
 .sf-menu li:hover,
 .sf-menu li.sfHover {
-	background: #CFDEFF;
+	background: #cb9400;
 	/* only transition out, not in */
 	-webkit-transition: none;
 	transition: none;

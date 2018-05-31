@@ -166,17 +166,21 @@
 							@foreach($blogs as $blog)
 								@if($i<4)
 									@if($blog->display ==1)
-										<div class="col-md-3">
-											<div class="blog-new-item box-shadows" style="border: 1px solid #d4d4d4;"> 
-						                        <a id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}">
-						                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" class="img-responsive img-box img-thumbnail"> 
-						                        </a>
-							                    <br>
-							                    <br>
-						                    	<h4><a id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}"  style="color: #000;">{{$blog->title}}</a></h4>
-						                        <div class="clear"></div>
+										<?php 
+											$user = App\User::where('id',$blog->user_id)->get()->first();
+										?>
+						                    <div class="col-md-3 col-sm-3 blog-item" style="margin-bottom: 20px;">
+												<article class="box-shadows"> 
+										          	<figure><a href="{{url('/'.$blog["url"])}}"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
+										          	<div class="blog-description">
+										            	<h4><a href="{{url('/'.$blog["url"])}}"  style="color: #000;">{{$blog->title}}</a></h4>
+										            	<footer><a href="{{url('/'.$blog["url"])}}">Xem chi tiết &raquo;</a></footer>
+										          	</div>
+										        </article>
 											</div>
-										</div>
+										<?php 
+											$i++;
+										?>
 									@endif
 								@endif
 							@endforeach
@@ -187,27 +191,21 @@
 							<?php 
 								$i=0
 							?>
-	                        @foreach($products as $prs)
+	                        @foreach($products as $pr)
 	                        	@if($i<4)
-									@if($prs->display ==1)
+									@if($pr->display ==1)
 				                        <div class="col-sm-3 product-item">
 				                        	<div class="blog-new-item box-shadows">
 					                            <div class="col-item">
 					                                <div class="photo">
-					                                    <a id="{{$prs->id}}" class="product-view"  href="{{url('/'.$prs["url"])}}"><img src="{{url('/uploads/images/products/'.$prs["image"])}}" alt="a" /></a>
+					                                    <a id="{{$pr->id}}" class="product-view"  href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
 					                                </div>
 					                                <div class="info">
 					                                    <div class="row">
 					                                        <div class="price col-md-12" style="text-align: center;">
-					                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$prs->name}}</h5>
-					                                            <h5 class="price-text-color">{{$prs->price}}</h5>
+					                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
+					                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
 					                                        </div>
-					                                    </div>
-					                                    <div class="separator clear-left">
-					                                        <p class="btn-add">
-					                                            <i class="fa fa-shopping-cart"></i><a href="{{URL::route('add-to-cart',$prs->url)}}" class="hidden-sm">MUA NGAY</a></p>
-					                                        <p class="btn-details">
-					                                            <i class="fa fa-list"></i><a id="{{$prs->id}}" class="product-view" href="{{url('/'.$prs["url"])}}" class="hidden-sm">XEM THÊM</a></p>
 					                                    </div>
 					                                    <div class="clearfix">
 					                                    </div>
