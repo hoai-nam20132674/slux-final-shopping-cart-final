@@ -124,6 +124,13 @@
 								<li><a href="{{URL::route('getListVertuError')}}">Sửa chữa Vertu</a></li>
 							</ul>
 						</li>
+						<li class="with-sub">
+							<a href="{{URL::route('getListUser')}}" class="waves-effect  waves-light">
+								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
+								<span class="s-icon"><i class="ti-menu-alt"></i></span>
+								<span class="s-text">User</span>
+							</a>
+						</li>
 						<!-- <li class="with-sub">
 							<a href="#" class="waves-effect  waves-light">
 								<span class="s-caret"><i class="fa fa-angle-down"></i></span>

@@ -20,6 +20,7 @@ use App\Order;
 use App\Custumer_Register;
 use App\Nokia_Error;
 use App\Vertu_Error;
+use App\User;
 use App\Http\Requests\addCategorieRequest;
 use App\Http\Requests\editCategorieRequest;
 use App\Http\Requests\editBlogRequest;
@@ -317,5 +318,21 @@ class adminController extends Controller
     }
 
     // End dịch vụ
+
+    // User
+
+    public function getListUser(){
+        $countBlogs = Blogs::select()->count();
+        $users = User::get();
+        return View('frontEndAdmin.page-content.listUser',['countBlogs'=>$countBlogs,'users'=>$users]);
+    }
+    public function addUser(){
+        $countBlogs = Blogs::select()->count();
+        return View('frontEndAdmin.page-content.addUser',['countBlogs'=>$countBlogs]);
+    }
+    // public function postAddUser(Request $request){
+
+    // }
+    // End User
     
 }

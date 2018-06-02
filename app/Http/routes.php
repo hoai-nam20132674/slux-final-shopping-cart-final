@@ -114,4 +114,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 	Route::post('postEditVertuError/{id}',['as'=>'postEditVertuError','uses'=>'adminController@postEditVertuError']);
 	Route::get('addVertuError',['as'=>'addVertuError','uses'=>'adminController@addVertuError']);
 	Route::post('postAddVertuError',['as'=>'postAddVertuError','uses'=>'adminController@postAddVertuError']);
+
+
+	Route::get('getListUser',['as'=>'getListUser','uses'=>'adminController@getListUser']);
+	Route::get('addUser',['as'=>'addUser','uses'=>'adminController@addUser']);
+	Route::post('postAddUser',['as'=>'postAddUser','uses'=>'adminController@postAddUser']);
+	Route::get('editUser',['as'=>'editUser','uses'=>'adminController@editUser']);
 });
