@@ -119,5 +119,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 	Route::get('getListUser',['as'=>'getListUser','uses'=>'adminController@getListUser']);
 	Route::get('addUser',['as'=>'addUser','uses'=>'adminController@addUser']);
 	Route::post('postAddUser',['as'=>'postAddUser','uses'=>'adminController@postAddUser']);
-	Route::get('editUser',['as'=>'editUser','uses'=>'adminController@editUser']);
+	Route::get('editUser/{id}',['as'=>'editUser','uses'=>'adminController@editUser']);
+	Route::post('postEditUser/{id}',['as'=>'postEditUser','uses'=>'adminController@postEditUser']);
 });

@@ -29,6 +29,8 @@ use App\Http\Requests\addBlogRequest;
 use App\Http\Requests\addProductRequest;
 use App\Http\Requests\addProductRepairRequest;
 use App\Http\Requests\editProductRepairRequest;
+use App\Http\Requests\addUserRequest;
+use App\Http\Requests\editUserRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Input;
@@ -330,9 +332,21 @@ class adminController extends Controller
         $countBlogs = Blogs::select()->count();
         return View('frontEndAdmin.page-content.addUser',['countBlogs'=>$countBlogs]);
     }
-    // public function postAddUser(Request $request){
-
-    // }
+    public function postAddUser(addUserRequest $request){
+        $user = new User;
+        $user-> addUser($request);
+        return redirect()->route('getListUser')->with(['flash_level'=>'success','flash_message'=>'Thêm thành viên thành công']);
+    }
+    public function editUser($id){
+        $user = User::where('id',$id)->get()->first();
+        $countBlogs = Blogs::select()->count();
+        return View('frontEndAdmin.page-content.editUser',['countBlogs'=>$countBlogs,'user'=>$user]);
+    }
+    public function postEditUser(editUserRequest $request, $id){
+        $user = new User;
+        $user-> editUser($request,$id);
+        return redirect()->route('getListUser')->with(['flash_level'=>'success','flash_message'=>'Sưa thông tin thành viên thành công']);
+    }
     // End User
     
 }

@@ -12,11 +12,11 @@
 @section('content')
 	<div class="content-area py-1">
 		<div class="container-fluid">
-			<h4>Thêm mới thành viên</h4>
+			<h4>Sửa thông tin thành viên</h4>
 			<ol class="breadcrumb no-bg mb-1">
 				<li class="breadcrumb-item"><a href="{{URL::route('index')}}">Trang chủ</a></li>
 				<li class="breadcrumb-item"><a href="{{URL::route('getListUser')}}">Danh sách thành viên</a></li>
-				<li class="breadcrumb-item active">Thêm nhân viên</li>
+				<li class="breadcrumb-item active">Sửa thông tin thành viên</li>
 			</ol>
 			<div class="box box-block bg-white">
 				@if( count($errors) > 0)
@@ -28,27 +28,27 @@
 		    		</ul>
 		    	</div>
 		    	@endif
-				<form action="{{URL::route('postAddUser')}}" method="POST">
+				<form action="{{URL::route('postEditUser',$user->id)}}" method="POST">
 					<input type="hidden" name="_token" value="{{ csrf_token()}}">
 					<div class="row">
 						<div class="col-md-9">
 							
 							<div class="form-group">
 								<label for="exampleInputEmail1">Họ tên</label>
-								<input type="text" class="form-control" name="name" placeholder="Nhập tên thành viên" value="{{old('name')}}" required>
+								<input type="text" class="form-control" name="name" placeholder="Nhập tên thành viên" value="{{$user->name}}" required>
 							</div>
 							
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email</label>
-								<input type="text" class="form-control" name="email" placeholder="Email" value="{{old('email')}}" required>
+								<input type="text" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" required>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Password</label>
-								<input type="password" class="form-control" name="password" placeholder="nhập password" value="{{old('password')}}" required>
+								<input type="password" class="form-control" name="password" placeholder="nhập password" value="" required>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Confrim Password</label>
-								<input type="password" class="form-control" name="confirm_password" placeholder="nhập lại password" value="{{old('confirm_password')}}" required>
+								<input type="password" class="form-control" name="confirm_password" placeholder="nhập lại password" value="" required>
 							</div>
 							<div class="form-group">
 				                <label>Phân quyền</label>
