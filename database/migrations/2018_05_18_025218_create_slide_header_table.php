@@ -15,7 +15,7 @@ class CreateSlideHeaderTable extends Migration
         Schema::create('slides_header', function (Blueprint $table) {
             $table->increments('id');
             $table->string('image');
-            $table->integer('blog_id');
+            $table->string('blog_url');
             $table->string('title');
             $table->timestamps();
         });

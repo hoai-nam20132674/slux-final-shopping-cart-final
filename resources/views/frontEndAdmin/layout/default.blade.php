@@ -54,22 +54,11 @@
 							</a>
 							<ul>
 								<li><a href="{{URL::route('editMenu')}}">Menu</a></li>
-								<li><a href="index2.html">Media</a></li>
+								<li><a href="{{URL::route('getListSlideHeader')}}">Slide Header</a></li>
+								<li><a href="{{url('/admin/ckfinder/ckfinder.html?type=Images&CKEditor=content&CKEditorFuncNum=1&langCode=vi')}}" target="_blank">Media</a></li>
 								<li><a href="{{URL::route('editSystems')}}">Cài đặt hệ thống</a></li>
 							</ul>
 						</li>
-						<!-- <li>
-							<a href="#" class="waves-effect  waves-light">
-								<span class="s-icon"><i class="ti-layout-tab"></i></span>
-								<span class="s-text">Layouts</span>
-							</a>
-						</li>
-						<li>
-							<a href="#" class="waves-effect  waves-light">
-								<span class="s-icon"><i class="ti-palette"></i></span>
-								<span class="s-text">Skins</span>
-							</a>
-						</li> -->
 						<li class="menu-title">Components</li>
 						<li class="with-sub">
 							<a href="{{URL::route('getListCategories')}}" class="waves-effect  waves-light">
@@ -131,91 +120,6 @@
 								<span class="s-text">User</span>
 							</a>
 						</li>
-						<!-- <li class="with-sub">
-							<a href="#" class="waves-effect  waves-light">
-								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
-								<span class="s-icon"><i class="ti-view-grid"></i></span>
-								<span class="s-text">Apps</span>
-							</a>
-							<ul>
-								<li><a href="apps-chat.html">Chat</a></li>
-								<li><a href="apps-contacts.html">Contacts</a></li>
-								<li><a href="apps-inbox.html">Inbox</a></li>
-							</ul>
-						</li>
-						<li class="menu-title">More</li>
-						<li class="with-sub">
-							<a href="#" class="waves-effect  waves-light">
-								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
-								<span class="tag tag-info">6</span>
-								<span class="s-icon"><i class="ti-bar-chart-alt"></i></span>
-								<span class="s-text">Charts</span>
-							</a>
-							<ul>
-								<li><a href="charts-chartjs.html">Chart.js</a></li>
-								<li><a href="charts-chartist.html">Chartist Chart</a></li>
-								<li><a href="charts-easy.html">Easy Pie Chart</a></li>
-								<li><a href="charts-flot.html">Flot Chart</a></li>
-								<li><a href="charts-morris.html">Morris Chart</a></li>
-								<li><a href="charts-peity.html">Peity Chart</a></li>
-								<li><a href="charts-sparkline.html">Sparkline Chart</a></li>
-							</ul>
-						</li>
-						<li class="with-sub">
-							<a href="#" class="waves-effect  waves-light">
-								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
-								<span class="s-icon"><i class="ti-location-pin"></i></span>
-								<span class="s-text">Maps</span>
-							</a>
-							<ul>
-								<li><a href="maps-google.html">Google Map</a></li>
-								<li><a href="maps-vector.html">Vector Map</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="calendar.html" class="waves-effect  waves-light">
-								<span class="s-icon"><i class="ti-calendar"></i></span>
-								<span class="s-text">Calendar</span>
-							</a>
-						</li>
-						<li class="with-sub compact-hide">
-							<a href="javascript: void(0);" class="waves-effect  waves-light">
-								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
-								<span class="s-icon"><i class="ti-menu"></i></span>
-								<span class="s-text">Menu Levels</span>
-							</a>
-							<ul>
-								<li class="with-sub">
-									<a href="javascript: void(0);">
-										<span class="s-caret"><i class="fa fa-angle-down"></i></span>
-										<span class="s-text">Level 1</span>
-									</a>
-									<ul>
-										<li class="with-sub">
-											<a href="javascript: void(0);">
-												<span class="s-caret"><i class="fa fa-angle-down"></i></span>
-												<span class="s-text">Level 1.2</span>
-											</a>
-											<ul>
-												<li class="with-sub">
-													<a href="javascript: void(0);">
-														<span class="s-caret"><i class="fa fa-angle-down"></i></span>
-														<span class="s-text">Level 1.2.3</span>
-													</a>
-													<ul>
-														<li><a href="javascript: void(0);">Level 1.2.3.4</a></li>
-														<li><a href="javascript: void(0);">Level 1.2.3.4</a></li>
-													</ul>
-												</li>
-												<li><a href="javascript: void(0);">Level 1.2.3</a></li>
-											</ul>
-										</li>
-										<li><a href="javascript: void(0);">Level 1.2</a></li>
-									</ul>
-								</li>
-								<li><a href="javascript: void(0);">Level 1</a></li>
-							</ul>
-						</li> -->
 						<li class="menu-title compact-hide">System usage</li>
 						<li class="compact-hide">
 							<div class="progress-widget progress-widget-light">

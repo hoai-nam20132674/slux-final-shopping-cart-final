@@ -121,4 +121,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 	Route::post('postAddUser',['as'=>'postAddUser','uses'=>'adminController@postAddUser']);
 	Route::get('editUser/{id}',['as'=>'editUser','uses'=>'adminController@editUser']);
 	Route::post('postEditUser/{id}',['as'=>'postEditUser','uses'=>'adminController@postEditUser']);
+
+	Route::get('addSlide',['as'=>'addSlide','uses'=>'adminController@addSlide']);
+	Route::post('postAddSlide',['as'=>'postAddSlide','uses'=>'adminController@postAddSlide']);
+	Route::get('getListSlideHeader',['as'=>'getListSlideHeader','uses'=>'adminController@getListSlideHeader']);
+	Route::get('editSlide/{id}',['as'=>'editSlide','uses'=>'adminController@editSlide']);
+	Route::post('postEditSlide/{id}',['as'=>'postEditSlide','uses'=>'adminController@postEditSlide']);
 });

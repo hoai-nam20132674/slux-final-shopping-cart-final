@@ -22,13 +22,13 @@
 							<div class="blog-item">
 								<div class="row"> 
 				                    <div class="col-xs-12 col-sm-3 col-md-3">
-				                        <a id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" class="blog-view"  href="{{url('/'.$blog["url"])}}">
-				                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" class="img-responsive img-box img-thumbnail"> 
+				                        <a id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" href="{{url('/'.$blog["url"])}}">
+				                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" class="img-responsive img-box "> 
 				                        </a>
 				                    </div> 
 				                    <div class="col-xs-12 col-sm-9 col-md-9">
-				                    	<h3 ><a style="color: #000;" id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}">{{$blog->title}}</a></h3>
-				                        <p>Naturally, we know where Bali's newest restaurants are and what to order, so give that private chef a rest and check out these spanking new haunts.</p>
+				                    	<h3 ><a style="color: #000;" id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}">{{$blog->title}}</a></h3>
+				                        
 				                        <div class="list-group">
 				                            <div class="list-group-item">
 				                                <div class="row-content">
@@ -42,7 +42,7 @@
 				                                </div>
 				                            </div>
 				                        </div>
-				                        <a id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}"><div class="read-more"><button class="btn-primary">Xem thêm</button></div></a>
+				                        <a id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}"><div class="read-more"><button class="btn-primary">Xem thêm</button></div></a>
 				                        <div class="clear"></div>
 				                       
 				                    </div> 

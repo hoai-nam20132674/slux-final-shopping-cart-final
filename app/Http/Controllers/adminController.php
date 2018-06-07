@@ -21,6 +21,7 @@ use App\Custumer_Register;
 use App\Nokia_Error;
 use App\Vertu_Error;
 use App\User;
+use App\Slides_Header;
 use App\Http\Requests\addCategorieRequest;
 use App\Http\Requests\editCategorieRequest;
 use App\Http\Requests\editBlogRequest;
@@ -31,6 +32,8 @@ use App\Http\Requests\addProductRepairRequest;
 use App\Http\Requests\editProductRepairRequest;
 use App\Http\Requests\addUserRequest;
 use App\Http\Requests\editUserRequest;
+use App\Http\Requests\addSlideRequest;
+use App\Http\Requests\editSlideRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Input;
@@ -349,4 +352,31 @@ class adminController extends Controller
     }
     // End User
     
+    // Slide Header
+
+    public function getListSlideHeader(){
+        $countBlogs = Blogs::select()->count();
+        $slides = Slides_Header::get();
+        return View('frontEndAdmin.page-content.listSlideHeader',['countBlogs'=>$countBlogs,'slides'=>$slides]);
+    }
+    public function addSlide(){
+        $countBlogs = Blogs::select()->count();
+        return View('frontEndAdmin.page-content.addSlide',['countBlogs'=>$countBlogs]);
+    }
+    public function postAddSlide(addSlideRequest $request){
+        $slide = new Slides_Header;
+        $slide-> addSlide($request);
+        return redirect()->route('getListSlideHeader')->with(['flash_level'=>'success','flash_message'=>'Thêm slide thành công']);
+    }
+    public function editSlide($id){
+        $countBlogs = Blogs::select()->count();
+        $slide = Slides_Header::where('id',$id)->get()->first();
+        return View('frontEndAdmin.page-content.editSlide',['countBlogs'=>$countBlogs,'slide'=>$slide]);
+    }
+    public function postEditSlide(editSlideRequest $request, $id){
+        $slide = new Slides_Header;
+        $slide->editSlide($request,$id);
+        return redirect()->route('getListSlideHeader')->with(['flash_level'=>'success','flash_message'=>'Sửa slide thành công']);
+    }
+    // End Slide Header
 }
