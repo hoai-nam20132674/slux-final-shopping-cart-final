@@ -27,14 +27,12 @@
 			</div>
 			<div class="col-md-4 col-sm-4">
 				<ul class="link">
-					<li><a href="#">Slux – Dịch vụ đẳng cấp</a></li>
-					<li><a href="#">Sửa chữa Nokia 8800</a></li>
-					<li><a href="#">Sửa chữa Vertu</a></li>
-					<li><a href="#">Đánh bóng bọc da Vertu</a></li>
-					<li><a href="#">Hỗ trợ khách hàng</a></li>
-					<li><a href="#">Chính sách thanh toán</a></li>
-					<li><a href="#">Chính sách bảo hành</a></li>
-					<li><a href="#">Hướng dẫn mua hàng</a></li>
+					<?php 
+						$blogs_f = App\Blogs::orderBy('created_at','DESC')->take(8)->get();
+					?>
+					@foreach($blogs_f as $blf)
+						<li><a href="{{$blf->url}}">{!! \Illuminate\Support\Str::words($blf->title, 6,' ...')  !!}</a></li>
+					@endforeach()
 					<a href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=29326"><img src="{{asset('images/bct.png')}}"></a>
 				</ul>
 

@@ -182,6 +182,8 @@
 											$i++;
 										?>
 									@endif
+								@else 
+									@break
 								@endif
 							@endforeach
 						</div>
@@ -217,6 +219,8 @@
 				                        	$i++;
 				                        ?>
 			                        @endif
+			                    @else 
+			                    	@break
 			                    @endif
 		                    @endforeach
 	                    </div>

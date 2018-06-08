@@ -138,29 +138,21 @@
 									<br>
 									<div class="blog-new">
 										<div class="row">
-											<?php 
-												$i=0;
-											?>
 											@foreach($blogs as $blog)
-												@if($i<3)
-													@if($blog->display ==1)
-														<?php 
-															$user = App\User::where('id',$blog->user_id)->get()->first();
-														?>
-										                    <div class="col-md-12 col-sm-4 blog-item" style="margin-bottom: 20px;">
-																<article class="box-shadows"> 
-														          	<figure><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
-														          	<div class="blog-description">
-														            	<h4><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view" style="color: #000;">{{$blog->title}}</a></h4>
-														            	<footer><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view">Xem chi tiết &raquo;</a></footer>
-														          	</div>
-														        </article>
-															</div>
-														<?php 
-															$i++;
-														?>
-													@endif
-												@endif
+
+												<?php 
+													$user = App\User::where('id',$blog->user_id)->get()->first();
+												?>
+								                    <div class="col-md-12 col-sm-4 blog-item" style="margin-bottom: 20px;">
+														<article class="box-shadows"> 
+												          	<figure><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
+												          	<div class="blog-description">
+												            	<h4><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view" style="color: #000;">{{$blog->title}}</a></h4>
+												            	<footer><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view">Xem chi tiết &raquo;</a></footer>
+												          	</div>
+												        </article>
+													</div>
+
 											@endforeach
 										</div>
 									</div>
@@ -184,7 +176,7 @@
 										?>
 				                        @foreach($products as $prs)
 				                        	@if($i<3)
-												@if($prs->display ==1 && $prs->id != $pr->id)
+												@if($prs->id != $pr->id)
 							                        <div class="col-sm-4 product-item" style="margin-bottom: 20px;">
 							                        	<div class="blog-new-item box-shadows">
 								                            <div class="col-item">
@@ -209,6 +201,8 @@
 							                        	$i++;
 							                        ?>
 						                        @endif
+						                    @else 
+						                    	@break
 						                    @endif
 					                    @endforeach
 				                    </div>

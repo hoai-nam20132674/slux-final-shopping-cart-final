@@ -20,32 +20,33 @@
 					<div class="blog-list">
 						@foreach($blogs as $blog)
 							<div class="blog-item">
-								<div class="row"> 
-				                    <div class="col-xs-12 col-sm-3 col-md-3">
-				                        <a id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" href="{{url('/'.$blog["url"])}}">
-				                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" class="img-responsive img-box "> 
-				                        </a>
-				                    </div> 
-				                    <div class="col-xs-12 col-sm-9 col-md-9">
-				                    	<h3 ><a style="color: #000;" id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}">{{$blog->title}}</a></h3>
-				                        
-				                        <div class="list-group">
-				                            <div class="list-group-item">
-				                                <div class="row-content">
-				                                	<?php 
-				                                		$user = App\User::where('id',$blog->user_id)->get()->first();
-				                                	?>
-				                                    <small>
-				                                        <i class="glyphicon glyphicon-time"></i>{{$blog->created_at}}<span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/sintret" alt="sintret" title="sintret">{{$user->name}}</a></span>
-				                                        <br>
-				                                    </small>
-				                                </div>
-				                            </div>
-				                        </div>
-				                        <a id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}"><div class="read-more"><button class="btn-primary">Xem thêm</button></div></a>
-				                        <div class="clear"></div>
-				                       
-				                    </div> 
+								<div class="row">
+						                    <div class="col-xs-12 col-sm-3 col-md-4">
+						                        <a id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" href="{{url('/'.$blog["url"])}}">
+						                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" class="img-responsive img-box "> 
+						                        </a>
+						                    </div> 
+						                    <div class="col-xs-12 col-sm-9 col-md-8">
+						                    	<h3 ><a style="color: #000;" id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}">{{$blog->title}}</a></h3>
+						                    	{!! \Illuminate\Support\Str::words($blog->content, 40,'...')  !!}
+						                        <div class="list-group">
+						                            <div class="list-group-item">
+						                                <div class="row-content">
+						                                	<?php 
+						                                		$user = App\User::where('id',$blog->user_id)->get()->first();
+						                                	?>
+						                                    <small>
+						                                        <i class="glyphicon glyphicon-time"></i>
+						                                        {{ \Carbon\Carbon::createFromTimestamp(strtotime($blog->created_at))->diffForHumans()}}
+						                                        <span class="twitter"> <i class="fa fa-twitter"></i> <a title="người đăng">{{$user->name}}</a></span>
+						                                        <br>
+						                                    </small>
+						                                </div>
+						                            </div>
+						                        </div>
+						                        <a id="{{$blog->id}}" class="blog-view" href="{{url('/'.$blog["url"])}}"><div class="read-more"><button class="btn-primary">Xem thêm</button></div></a>
+						                        <div class="clear"></div>
+						                    </div> 
 				                </div>
 				            </div>
 			                <hr>
@@ -112,29 +113,22 @@
 										?>
 										@foreach($products as $pr)
 											<div class="blog-new-item box-shadows">
-												@if($i<3)
-													@if($pr->display ==1)
-									                    <div class="col-md-12 col-sm-4 product-item" style="margin-bottom: 20px;">
-								                            <div class="col-item">
-								                                <div class="photo">
-								                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
-								                                </div>
-								                                <div class="info">
-								                                    <div class="row">
-								                                        <div class="price col-md-12" style="text-align: center;">
-								                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
-								                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
-								                                        </div>
-								                                    </div>
-								                                    <div class="clearfix"></div>
-								                                </div>
-								                            </div>
-								                        </div>
-								                        <?php 
-								                        	$i++;
-								                        ?>
-								                    @endif
-								                @endif
+							                    <div class="col-md-12 col-sm-4 product-item" style="margin-bottom: 20px;">
+						                            <div class="col-item">
+						                                <div class="photo">
+						                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
+						                                </div>
+						                                <div class="info">
+						                                    <div class="row">
+						                                        <div class="price col-md-12" style="text-align: center;">
+						                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
+						                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
+						                                        </div>
+						                                    </div>
+						                                    <div class="clearfix"></div>
+						                                </div>
+						                            </div>
+						                        </div>
 											</div>
 										@endforeach
 									</div>

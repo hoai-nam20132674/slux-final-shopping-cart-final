@@ -24,42 +24,6 @@
 					</li>
 				@endif
 			@endforeach()
-			<!-- <li class="cd-hero__slide cd-hero__slide--selected js-cd-slide" style="background-image: url(images/bg-slide-header.jpg);">
-				<div class="cd-hero__content cd-hero__content--full-width">
-					<h2>Slux - ĐIỂM CHẠM ĐẲNG CẤP</h2>
-					<a href="#" class="cd-hero__btn">XEM CHI TIẾT</a>
-				</div>
-			</li>
-			<li class="cd-hero__slide js-cd-slide" style="background-image: url(images/a6.jpg);">
-				<div class="cd-hero__content cd-hero__content--full-width">
-					<h2>Nokia 8800 chế tác</h2>
-					<a href="#" class="cd-hero__btn">XEM CHI TIẾT</a>
-				</div>
-			</li>
-			<li class="cd-hero__slide js-cd-slide" style="background-image: url(images/vertu.jpg);">
-				<div class="cd-hero__content cd-hero__content--full-width">
-					<h2>Vertu 8800 chế tác</h2>
-					<a href="#" class="cd-hero__btn">XEM CHI TIẾT</a>
-				</div>
-			</li> -->
-			<!-- <li class="cd-hero__slide js-cd-slide" style="background-image:url(images/a6.jpg);">
-				<div class="cd-hero__content cd-hero__content--half-width">
-					<h2>Nokia 8800 chế tác</h2>
-					<a href="#0" class="cd-hero__btn">XEM CHI TIẾT</a>
-				</div>
-				<div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
-					<img src="images/nokia8800.png" alt="tech 1">
-				</div>
-			</li>
-			<li class="cd-hero__slide js-cd-slide" style="background-image:url(images/vertu.jpg)">
-				<div class="cd-hero__content cd-hero__content--half-width cd-hero__content--img">
-					<img src="images/vertu.png" alt="tech 2">
-				</div>
-				<div class="cd-hero__content cd-hero__content--half-width">
-					<h2>Vertu chế tác</h2>
-					<a href="#0" class="cd-hero__btn">XEM CHI TIẾT</a>
-				</div>
-			</li> -->
 		</ul>
 		<div class="cd-hero__nav js-cd-nav">
 			<nav>

@@ -406,12 +406,13 @@ figure {
   zoom: 1;
   font-size: 14px;
   border-bottom: none !important;
-  font-weight: 700;
+  
   text-transform: uppercase;
 }
 .sf-menu a:hover, .sf-menu a:focus, .sf-menu a.active {
   /*background: #00ADB5 !important;*/
   color: #000 !important;
+  font-weight: 700;
 }
 .sf-menu li:hover {
   /*background-image: url(../images/background-button.jpg);*/
@@ -2556,6 +2557,9 @@ figure {
         width: 100%;
         margin-bottom: 40px;
         padding: 0px; 
+    }
+    .news-item-content h1 {
+      font-size: 25px;
     }
 
     /* feeback css */

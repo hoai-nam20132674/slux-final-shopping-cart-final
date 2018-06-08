@@ -46,8 +46,8 @@ class viewController extends Controller
         if(count($categorie)>0){
             foreach($categorie as $cate){
                 if($cate->url == 'sua-chua-nokia-8800'){
-                    $blogs = Blogs::select()->orderBy('created_at','DESC')->get();
-                    $products=Products::select()->orderBy('created_at','DESC')->get();
+                    $blogs = Blogs::where('display',1)->orderBy('created_at','DESC')->take(4)->get();
+                    $products=Products::where('display',1)->orderBy('created_at','DESC')->take(4)->get();
                     $totalQuantity= Cart::getTotalQuantity();
                     $seo = $cate;
                     $system = Systems::get()->first();
@@ -55,8 +55,8 @@ class viewController extends Controller
                     return View('frontEndUser.page-content.suaChuaNokia8800',['cate'=>$cate,'blogs'=>$blogs,'products'=>$products,'totalQuantity'=>$totalQuantity,'seo'=>$seo,'system'=>$system,'nokia_errors'=>$nokia_errors]);
                 }
                 if($cate->url == 'sua-chua-vertu'){
-                    $blogs = Blogs::select()->orderBy('created_at','DESC')->get();
-                    $products=Products::select()->orderBy('created_at','DESC')->get();
+                    $blogs = Blogs::where('display',1)->orderBy('created_at','DESC')->take(4)->get();
+                    $products=Products::where('display',1)->orderBy('created_at','DESC')->take(4)->get();
                     $totalQuantity= Cart::getTotalQuantity();
                     $seo = $cate;
                     $system = Systems::get()->first();
@@ -64,24 +64,22 @@ class viewController extends Controller
                     return View('frontEndUser.page-content.suaChuaVertu',['cate'=>$cate,'blogs'=>$blogs,'products'=>$products,'totalQuantity'=>$totalQuantity,'seo'=>$seo,'system'=>$system,'vertu_errors'=>$vertu_errors]);
                 }
                 if($cate->url == 'lien-he'){
-                    $blogs = Blogs::select()->orderBy('created_at','DESC')->get();
-                    $products=Products::select()->orderBy('created_at','DESC')->get();
                     $totalQuantity= Cart::getTotalQuantity();
                     $seo = $cate;
                     $system = Systems::get()->first();
-                    return View('frontEndUser.page-content.contact',['cate'=>$cate,'blogs'=>$blogs,'products'=>$products,'totalQuantity'=>$totalQuantity,'seo'=>$seo,'system'=>$system]);
+                    return View('frontEndUser.page-content.contact',['cate'=>$cate,'totalQuantity'=>$totalQuantity,'seo'=>$seo,'system'=>$system]);
                 }
                 if($cate->type ==0){
-                    $blogs = Blogs::select()->orderBy('created_at','DESC')->get();
-                    $products=Products::select()->orderBy('created_at','DESC')->get();
+                    $blogs = Blogs::where('display',1)->orderBy('created_at','DESC')->take(4)->get();
+                    $products=Products::where('display',1)->orderBy('created_at','DESC')->take(4)->get();
                     $totalQuantity= Cart::getTotalQuantity();
                     $seo = $cate;
                     $system = Systems::get()->first();
                     return View('frontEndUser.page-content.newsCategorie',['cate'=>$cate,'blogs'=>$blogs,'products'=>$products,'totalQuantity'=>$totalQuantity,'seo'=>$seo,'system'=>$system]);
                 }
                 if($cate->type ==2){
-                    $blogs = Blogs::select()->orderBy('created_at','DESC')->paginate(10);
-                    $products = Products::select()->orderBy('created_at','DESC')->get();
+                    $blogs = Blogs::where('display',1)->orderBy('created_at','DESC')->paginate(10);
+                    $products = Products::where('display',1)->orderBy('created_at','DESC')->take(3)->get();
                     $totalQuantity= Cart::getTotalQuantity();
                     $menu_sidebars= Menu_Sidebar::select()->get();
                     $seo = $cate;
@@ -92,7 +90,7 @@ class viewController extends Controller
                     $id =$cate->id;
                     $products= $this->getProductCategorie($id);
                     $idCateParents = $this->getIdCategorieParent($id);
-                    $blogs =Blogs::select()->orderBy('created_at','DESC')->get();
+                    $blogs =Blogs::where('display',1)->orderBy('created_at','DESC')->take(3)->get();
                     $totalQuantity= Cart::getTotalQuantity();
                     $menu_sidebars= Menu_Sidebar::select()->get();
                     $seo = $cate;
@@ -106,8 +104,8 @@ class viewController extends Controller
                 $product_images = Products_Images::where('product_id',$pr->id)->get();
                 $idCateParents = $this->getIdCategorieParent($pr->categorie_id);
                 $categories = Categories::whereIn('id',$idCateParents)->get();
-                $blogs = Blogs::where('categorie_id',$pr->categorie_id)->orderBy('created_at','DESC')->get();
-                $products = Products::where('categorie_id',$pr->categorie_id)->orderBy('created_at','DESC')->get();
+                $blogs = Blogs::where('display',1)->where('categorie_id',$pr->categorie_id)->orderBy('created_at','DESC')->take(3)->get();
+                $products = Products::where('display',1)->where('categorie_id',$pr->categorie_id)->orderBy('created_at','DESC')->get();
                 $totalQuantity= Cart::getTotalQuantity();
                 $seo = $pr;
                 $system = Systems::get()->first();
@@ -116,9 +114,9 @@ class viewController extends Controller
         }
         if(count($blog)>0){
             foreach($blog as $bl){
-                $products = Products::where('categorie_id',$bl->categorie_id)->get();
+                $products = Products::where('display',1)->where('categorie_id',$bl->categorie_id)->take(3)->get();
                 $categorie = Categories::where('id',$bl->categorie_id)->get()->first();
-                $blogs =Blogs::where('categorie_id',$bl->categorie_id)->orderBy('created_at','DESC')->get();
+                $blogs =Blogs::where('display',1)->where('categorie_id',$bl->categorie_id)->orderBy('created_at','DESC')->get();
                 $totalQuantity= Cart::getTotalQuantity();
                 $menu_sidebars= Menu_Sidebar::select()->get();
                 $seo = $bl;
@@ -204,7 +202,7 @@ class viewController extends Controller
     }
     public function getProductCategorie($id){
         $categories = $this->getIdCategorieChildren($id);
-        $products = Products::whereIn('categorie_id',$categories)->orderBy('created_at','DESC')->paginate(9);
+        $products = Products::where('display',1)->whereIn('categorie_id',$categories)->orderBy('created_at','DESC')->paginate(9);
         // dd($products);
         return $products;
     }
@@ -284,7 +282,7 @@ class viewController extends Controller
 
         }
         else{
-            return redirect()->route('home')->with(['flash_level'=>'danger','flash_message'=>'Không có sản phẩm nào trong giỏ hàng']);
+            return redirect()->route('getCart')->with(['flash_level'=>'danger','flash_message'=>'Không có sản phẩm nào trong giỏ hàng']);
         }
     }
     public function supportViewProduct($id){

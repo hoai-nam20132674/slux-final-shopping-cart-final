@@ -37,6 +37,12 @@
 	        	<div class="panel panel-default">
 					<div class="panel-heading">Thông tin giỏ hàng</div>
 					<div class="panel-body">
+						<?php 
+							$count = count($contents);
+						?>
+						@if($count==0)
+							<span style="background: red; color: #fff; padding: 5px;">Không có sản phẩm nào trong giỏ hàng, tiếp tục mua hàng <a href="{{ URL::previous() }}" style="color: green">tại đây</a></span>
+						@endif
 						@foreach($contents as $item)
 						<div class="row" style="margin-bottom: 40px;">
 							<section id="cart"> 

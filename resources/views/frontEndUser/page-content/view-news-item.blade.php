@@ -17,7 +17,13 @@
 					</div>
 					<br>
 					<div class="news-item-content">
+						<?php 
+                    		$user = App\User::where('id',$bl->user_id)->get()->first();
+                    	?>
 						<h1>{{$bl->title}}</h1>
+						<i style="font-size: 10px;" class="glyphicon glyphicon-time"></i>
+                            <span style="font-size: 10px;">{{ \Carbon\Carbon::createFromTimestamp(strtotime($bl->created_at))->diffForHumans()}} </span><span class="badge badge-success" style="background: #007bff; border-radius: 2px; font-size: 9px;">{{$user->name}}</span>
+						<br>
 						<br>
 						{!!$bl->content!!}
 					</div>
@@ -60,39 +66,29 @@
 							<div class="panel-heading text-center" style="text-transform: uppercase;font-weight:700;">Sản phẩm liên quan</div>
 							<br>
 							<div class="blog-new">
-								<?php 
-									$i=0;
-								?>
 								@foreach($products as $pr)
-									@if($i<3)
-										@if($pr->display ==1)
-											<div class="blog-new-item box-shadows">
-												<div class="row">
-								                    <div class="col-md-12 product-item" style="margin-bottom: 0px;">
-							                            <div class="col-item">
-							                                <div class="photo">
-							                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
-							                                </div>
-							                                <div class="info">
-							                                    <div class="row">
-							                                        <div class="price col-md-12" style="text-align: center;">
-							                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
-							                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
-							                                        </div>
-							                                    </div>
-							                                    <div class="clearfix">
-							                                    </div>
-							                                </div>
-							                            </div>
-							                        </div>
-							                	</div>
-											</div>
-											<br>
-					                        <?php 
-					                        	$i++;
-					                        ?>
-										@endif
-							        @endif
+									<div class="blog-new-item box-shadows">
+										<div class="row">
+						                    <div class="col-md-12 product-item" style="margin-bottom: 0px;">
+					                            <div class="col-item">
+					                                <div class="photo">
+					                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
+					                                </div>
+					                                <div class="info">
+					                                    <div class="row">
+					                                        <div class="price col-md-12" style="text-align: center;">
+					                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
+					                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
+					                                        </div>
+					                                    </div>
+					                                    <div class="clearfix">
+					                                    </div>
+					                                </div>
+					                            </div>
+					                        </div>
+					                	</div>
+									</div>
+									<br>
 								@endforeach
 								<br>
 							</div>
@@ -116,7 +112,7 @@
 					?>
 					@foreach($blogs as $blog)
 						@if($i<3)
-							@if($blog->display ==1 && $blog->id != $bl->id)
+							@if($blog->id != $bl->id)
 								<div class="col-md-4 col-sm-4 blog-item">
 									<article class="box-shadows"> 
 							          	<figure><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
