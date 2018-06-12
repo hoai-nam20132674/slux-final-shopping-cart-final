@@ -32,7 +32,7 @@ class viewController extends Controller
     public function index(){
         $totalQuantity= Cart::getTotalQuantity();
         $system = Systems::get()->first();
-        $blogs = Blogs::select()->orderBy('created_at','DESC')->get();
+        $blogs = Blogs::where('display',1)->orderBy('created_at','DESC')->take(4)->get();
         return View('frontEndUser.index',['totalQuantity'=>$totalQuantity,'system'=>$system,'blogs'=>$blogs]);
     }
     public function viewContentPageCategorie($url)
@@ -100,16 +100,16 @@ class viewController extends Controller
             }
         }
         if(count($product)>0){
-            foreach($product as $pr){
-                $product_images = Products_Images::where('product_id',$pr->id)->get();
-                $idCateParents = $this->getIdCategorieParent($pr->categorie_id);
+            foreach($product as $prs){
+                $product_images = Products_Images::where('product_id',$prs->id)->get();
+                $idCateParents = $this->getIdCategorieParent($prs->categorie_id);
                 $categories = Categories::whereIn('id',$idCateParents)->get();
-                $blogs = Blogs::where('display',1)->where('categorie_id',$pr->categorie_id)->orderBy('created_at','DESC')->take(3)->get();
-                $products = Products::where('display',1)->where('categorie_id',$pr->categorie_id)->orderBy('created_at','DESC')->get();
+                $blogs = Blogs::where('display',1)->where('categorie_id',$prs->categorie_id)->orderBy('created_at','DESC')->take(3)->get();
+                $products = Products::where('display',1)->where('categorie_id',$prs->categorie_id)->orderBy('created_at','DESC')->get();
                 $totalQuantity= Cart::getTotalQuantity();
-                $seo = $pr;
+                $seo = $prs;
                 $system = Systems::get()->first();
-                return View('frontEndUser.page-content.view-product-item',['pr'=>$pr,'product_images'=>$product_images,'categories'=>$categories,'blogs'=>$blogs,'products'=>$products,'totalQuantity'=>$totalQuantity,'seo'=>$seo,'system'=>$system]);
+                return View('frontEndUser.page-content.view-product-item',['prs'=>$prs,'product_images'=>$product_images,'categories'=>$categories,'blogs'=>$blogs,'products'=>$products,'totalQuantity'=>$totalQuantity,'seo'=>$seo,'system'=>$system]);
             }
         }
         if(count($blog)>0){

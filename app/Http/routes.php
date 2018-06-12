@@ -127,4 +127,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 	Route::get('getListSlideHeader',['as'=>'getListSlideHeader','uses'=>'adminController@getListSlideHeader']);
 	Route::get('editSlide/{id}',['as'=>'editSlide','uses'=>'adminController@editSlide']);
 	Route::post('postEditSlide/{id}',['as'=>'postEditSlide','uses'=>'adminController@postEditSlide']);
+	Route::get('enable-product/{id}',['as'=>'enable-product','uses'=>'adminController@enableProduct']);
+	Route::get('disable-product/{id}',['as'=>'disable-product','uses'=>'adminController@disableProduct']);
+	Route::get('enable-blog/{id}',['as'=>'enable-blog','uses'=>'adminController@enableBlog']);
+	Route::get('disable-blog/{id}',['as'=>'disable-blog','uses'=>'adminController@disableBlog']);
 });

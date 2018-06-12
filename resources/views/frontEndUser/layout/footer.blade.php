@@ -6,7 +6,7 @@
 				<div class="copyright">
 					<h1>
 						<!-- <a href="index.html">Slux +</a> -->
-						<a href="/"><img width="100%" src="{{asset('images/logo-slux.png')}}"></a>
+						<a href="/"><img width="100%" src="{{asset('uploads/images/logo/logo-slux.png')}}"></a>
 					</h1>
 					<h3 class="text-center">{!!$system->slogan!!}</h3>
 					<ul class="contact">
@@ -16,10 +16,12 @@
 					</ul>
 					<ul class="social-icons">
 						<li>
-							<a href="#"><i class="icon-twitter-with-circle"></i></a>
-							<a href="#"><i class="icon-facebook-with-circle"></i></a>
-							<a href="#"><i class="icon-instagram-with-circle"></i></a>
-							<a href="#"><i class="icon-linkedin-with-circle"></i></a>
+							
+							<a href="{!!$system->facebook!!}" target="_blank"><i class="icon-facebook-with-circle"></i></a>
+							<a href="{!!$system->youtube!!}" target="_blank"><i class="icon-youtube-with-circle"></i></a>
+							<a href="{!!$system->linkedin!!}" target="_blank"><i class="icon-linkedin-with-circle"></i></a>
+							<a href="{!!$system->twitter!!}" target="_blank"><i class="icon-twitter-with-circle"></i></a>
+							<a href="{!!$system->instagram!!}" target="_blank"><i class="icon-instagram-with-circle"></i></a>
 						</li>
 					</ul>
 				</div>
@@ -28,7 +30,7 @@
 			<div class="col-md-4 col-sm-4">
 				<ul class="link">
 					<?php 
-						$blogs_f = App\Blogs::orderBy('created_at','DESC')->take(8)->get();
+						$blogs_f = App\Blogs::where('display',1)->orderBy('created_at','DESC')->take(8)->get();
 					?>
 					@foreach($blogs_f as $blf)
 						<li><a href="{{$blf->url}}">{!! \Illuminate\Support\Str::words($blf->title, 6,' ...')  !!}</a></li>
@@ -57,13 +59,20 @@
 					<nav role="navigation">
 						<ul class="menu-footer">
 							<li id="menu-item"><a href="/">Trang chủ</a></li>
-							<?php 
+							<?php
 								$cateMenus = App\Menu_Header::select()->get();
 								$i=1;
+								$j=0;
+								$array = array();
+								foreach($cateMenus as $cate){
+									$array[$j] = $cate->categorie_id;
+									$j++;
+								}
+								$cate_Menus = App\Categories::where('display',1)->whereIn('id',$array)->get();
 							?>
-							@foreach($cateMenus as $cateMenu)
+							@foreach($cate_Menus as $cateMenu)
 								<?php
-									$categorie = App\Categories::where('id',$cateMenu->categorie_id)->get()->first();
+									$categorie = App\Categories::where('id',$cateMenu->id)->get()->first();
 									$categories = App\Categories::where('parent_id',$categorie->id)->get();
 								?>
 								@if(count($categories)>0)

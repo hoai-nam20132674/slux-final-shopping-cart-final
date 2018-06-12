@@ -379,4 +379,20 @@ class adminController extends Controller
         return redirect()->route('getListSlideHeader')->with(['flash_level'=>'success','flash_message'=>'Sửa slide thành công']);
     }
     // End Slide Header
+    public function enableProduct($id){
+        $product = new Products;
+        $product->enableProduct($id);
+    }
+    public function disableProduct($id){
+        $product = new Products;
+        $product->disableProduct($id);
+    }
+    public function enableBlog($id){
+        $product = new Blogs;
+        $product->enableBlog($id);
+    }
+    public function disableBlog($id){
+        $product = new Blogs;
+        $product->disableBlog($id);
+    }
 }

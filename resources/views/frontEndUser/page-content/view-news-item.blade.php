@@ -67,25 +67,9 @@
 							<br>
 							<div class="blog-new">
 								@foreach($products as $pr)
-									<div class="blog-new-item box-shadows">
-										<div class="row">
-						                    <div class="col-md-12 product-item" style="margin-bottom: 0px;">
-					                            <div class="col-item">
-					                                <div class="photo">
-					                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
-					                                </div>
-					                                <div class="info">
-					                                    <div class="row">
-					                                        <div class="price col-md-12" style="text-align: center;">
-					                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
-					                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
-					                                        </div>
-					                                    </div>
-					                                    <div class="clearfix">
-					                                    </div>
-					                                </div>
-					                            </div>
-					                        </div>
+									<div class="row">
+					                    <div class="col-md-12 product-item" style="margin-bottom: 0px;">
+					                    	@include('frontEndUser.layout.product_item')
 					                	</div>
 									</div>
 									<br>
@@ -114,13 +98,7 @@
 						@if($i<3)
 							@if($blog->id != $bl->id)
 								<div class="col-md-4 col-sm-4 blog-item">
-									<article class="box-shadows"> 
-							          	<figure><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
-							          	<div class="blog-description">
-							            	<h4><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view" style="color: #000;">{{$blog->title}}</a></h4>
-							            	<footer><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view">Xem chi tiết &raquo;</a></footer>
-							          	</div>
-							        </article>
+									@include('frontEndUser.layout.blog_item')
 								</div>
 							@endif
 						@endif

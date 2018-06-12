@@ -23,7 +23,7 @@
 								<div class="row">
 						                    <div class="col-xs-12 col-sm-3 col-md-4">
 						                        <a id="{{$blog->id}}" class="blog-view" id="{{$blog->id}}" href="{{url('/'.$blog["url"])}}">
-						                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" class="img-responsive img-box "> 
+						                            <img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" class="img-responsive img-box " alt="{{$blog->title}}"> 
 						                        </a>
 						                    </div> 
 						                    <div class="col-xs-12 col-sm-9 col-md-8">
@@ -75,24 +75,30 @@
 						<div id='cssmenu'>
 							<ul>
 								<li class='active'><a ><span>Danh mục</span></a></li>
-								<?php 
+								<?php
 									$sideMenus = App\Menu_Sidebar::select()->get();
+									$i=1;
+									$j=0;
+									$array = array();
+									foreach($sideMenus as $cate){
+										$array[$j] = $cate->categorie_id;
+										$j++;
+									}
+									$side_Menus = App\Categories::where('display',1)->whereIn('id',$array)->get();
 								?>
-								@foreach($sideMenus as $sideMenu)
+								@foreach($side_Menus as $sideMenu)
 									<?php
-										$categorie = App\Categories::where('id',$sideMenu->categorie_id)->get()->first();
-										$categories = App\Categories::where('parent_id',$categorie->id)->get();
+										$categorie = App\Categories::where('id',$sideMenu->id)->get()->first();
+										$categories = App\Categories::where('parent_id',$categorie->id)->where('display',1)->get();
 									?>
 									<!-- @if($categorie->parent_id == 0) -->
 										@if(count($categories)>0)
 											<li class='has-sub'><a href='{{url('/'.$categorie["url"])}}'><span>{{$categorie->name}}</span></a>
-												
-													<ul class="">
-														@foreach($categories as $categorie)
-															<li><a href='{{url('/'.$categorie["url"])}}'><span>{{$categorie->name}}</span></a></li>
-														@endforeach
-													</ul>
-												
+												<ul class="">
+													@foreach($categories as $categorie)
+														<li><a href='{{url('/'.$categorie["url"])}}'><span>{{$categorie->name}}</span></a></li>
+													@endforeach
+												</ul>
 											</li>
 										@else
 											<li class='has-sub'><a href='{{url('/'.$categorie["url"])}}'><span>{{$categorie->name}}</span></a></li>
@@ -112,23 +118,8 @@
 											$i=0;
 										?>
 										@foreach($products as $pr)
-											<div class="blog-new-item box-shadows">
-							                    <div class="col-md-12 col-sm-4 product-item" style="margin-bottom: 20px;">
-						                            <div class="col-item">
-						                                <div class="photo">
-						                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
-						                                </div>
-						                                <div class="info">
-						                                    <div class="row">
-						                                        <div class="price col-md-12" style="text-align: center;">
-						                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
-						                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
-						                                        </div>
-						                                    </div>
-						                                    <div class="clearfix"></div>
-						                                </div>
-						                            </div>
-						                        </div>
+											<div class="col-md-12 col-sm-4 product-item" style="margin-bottom: 20px;">
+												@include('frontEndUser.layout.product_item')
 											</div>
 										@endforeach
 									</div>

@@ -12,6 +12,7 @@
 	<meta name="author" content="Cuong.vn" />
 
   	<!-- Facebook and Twitter integration -->
+  	<meta property="og:type" content="article">
 	<meta property="og:title" content="{!!$seo->title!!}"/>
 	<meta property="og:image" content="{!!$system->og_image!!}"/>
 	<meta property="og:url" content="{!!url('/'.$seo->url)!!}"/>
@@ -23,6 +24,8 @@
 	<meta name="twitter:card" content="" />
 	<link rel="canonical" href="{!!url()!!}" />
 	<meta property="og:locale" content="vi_VN" />
+	<meta property="fb:app_id" content="1629019750478837" />
+ 	<meta property="fb:admins" content="100004444963017"/>
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="{{$system->logo_title}}">
@@ -55,14 +58,17 @@
 	<link href='https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<!--Add to cart-->
 	<link rel="stylesheet" href="{{asset('addCart/css/style.css')}}"> 
 	<!--End add to cart-->
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+	<script type="text/javascript" src="{{asset('js/mobile-1.4.5.min.js')}}"></script>
+	<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+	<script type="text/javascript" src="{{asset('js/jquery-1.11.0.min.js')}}"></script>
+	<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript" src="{{asset('js/bootstrap.3.2.0.min.js')}}"></script>
 	<script src="{{asset('js/jquery.min.js')}}"></script>
 	<script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
 	<script src="{{asset('js/serviceSlux.js')}}"></script>
@@ -142,7 +148,8 @@
 		@yield('js')
 		<script src="{{asset('js/particles.js')}}"></script>
 		<script src="{{asset('js/particles-app.js')}}"></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js'></script>
+		<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js'></script> -->
+		<script src="{{asset('js/swiper.min.js')}}"></script>
 		<script type="text/javascript" src="{{asset('js/carousel.js')}}"></script>
 		
 		<!-- SwiperEffect Js-->
@@ -180,10 +187,18 @@
 		<script src="{{asset('addCart/js/main.js')}}"></script> <!-- Resource jQuery -->
 		<!--End add to cart-->
 		<script type="text/javascript">
-	    	$("div.alert").delay(2000).slideUp();
+	    	$("div.alert").delay(5000).slideUp();
 	    </script>
 	    <script src="{{asset('js/slide-header/main.js')}}"></script> <!-- Resource JavaScrip -->
 	    <script type="text/javascript" src="{{asset('js/support-views.js')}}"></script>
+	    <div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=1629019750478837&autoLogAppEvents=1';
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 	    {!!$system->script!!}
 	</body>
 </html>

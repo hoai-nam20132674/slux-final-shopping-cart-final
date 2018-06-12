@@ -24,7 +24,7 @@
 						<div class="row">
 							<div class="col-md-8">
 								@if( Session::has('flash_message'))
-					                <div style="text-align: center; margin-bottom: 0px; background: #60ea27; color: green; border-color: #60ea27;font-weight: 700;" class="alert alert-{{ Session::get('flash_level')}}">
+					                <div style="text-align: center; margin-bottom: 0px; background: #60ea27; color: #cb9400; border-color: #60ea27;font-weight: 700;" class="alert alert-{{ Session::get('flash_level')}}">
 					                    {{ Session::get('flash_message')}}
 					                </div>
 					            @endif
@@ -101,6 +101,7 @@
 									<em class="cd-scroll-right"></em>
 								</section>
 								<br>
+								<div class="fb-comments" data-href="http://slux.vn/sua-chua-vertu" data-width="750" data-numposts="10"></div>
 							</div>
 							<div class="col-md-4">
 								<form action="{{URL::route('postAddCustumerRegisterV')}}" method="POST" class="cd-form floating-labels" style="padding: 0px 10px;border: 1px solid;border-radius: 10px;">
@@ -170,13 +171,7 @@
 											$user = App\User::where('id',$blog->user_id)->get()->first();
 										?>
 						                    <div class="col-md-3 col-sm-3 blog-item" style="margin-bottom: 20px;">
-												<article class="box-shadows"> 
-										          	<figure><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
-										          	<div class="blog-description">
-										            	<h4><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view" style="color: #000;">{{$blog->title}}</a></h4>
-										            	<footer><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view">Xem chi tiết &raquo;</a></footer>
-										          	</div>
-										        </article>
+												@include('frontEndUser.layout.blog_item')
 											</div>
 										<?php 
 											$i++;
@@ -196,24 +191,8 @@
 	                        @foreach($products as $pr)
 	                        	@if($i<4)
 									@if($pr->display ==1)
-				                        <div class="col-md-3 col-sm-3 product-item">
-				                        	<div class="blog-new-item box-shadows">
-					                            <div class="col-item">
-					                                <div class="photo">
-					                                    <a id="{{$pr->id}}" class="product-view"  href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
-					                                </div>
-					                                <div class="info">
-					                                    <div class="row">
-					                                        <div class="price col-md-12" style="text-align: center;">
-					                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
-					                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
-					                                        </div>
-					                                    </div>
-					                                    <div class="clearfix">
-					                                    </div>
-					                                </div>
-					                            </div>
-					                        </div>
+										<div class="col-md-3 col-sm-3 product-item">
+				                        	@include('frontEndUser.layout.product_item')
 				                        </div>
 				                        <?php 
 				                        	$i++;

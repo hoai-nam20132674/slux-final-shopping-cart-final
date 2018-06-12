@@ -169,7 +169,7 @@
 				<nav class="navbar navbar-light">
 					<div class="navbar-left">
 						<a class="navbar-brand" href="/admin/index">
-							<div class="logo"><img src="{{asset('images/logo-slux.png')}}" width="100%"></div>
+							<div class="logo"><img src="{{asset('uploads/images/logo/logo-slux.png')}}" width="100%"></div>
 						</a>
 						<div class="toggle-button dark sidebar-toggle-first float-xs-left hidden-md-up">
 							<span class="hamburger"></span>

@@ -50,13 +50,16 @@
 	<link rel="stylesheet" href="{{asset('css/thumbnails.carousel.css')}}">
 	<link href='https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<!--Add to cart-->
 	<link rel="stylesheet" href="{{asset('addCart/css/style.css')}}"> 
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+	<script type="text/javascript" src="{{asset('js/mobile-1.4.5.min.js')}}"></script>
+	<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+	<script type="text/javascript" src="{{asset('js/jquery-1.11.0.min.js')}}"></script>
+	<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript" src="{{asset('js/bootstrap.3.2.0.min.js')}}"></script>
 	<script src="{{asset('js/jquery.min.js')}}"></script>
 	<script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
 	<script src="{{asset('js/serviceSlux.js')}}"></script>
@@ -135,7 +138,8 @@
 		<!-- SwiperEffect Js-->
 		<script src="{{asset('js/particles.js')}}"></script>
 		<script src="{{asset('js/particles-app.js')}}"></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js'></script>
+		<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js'></script> -->
+		<script src="{{asset('js/swiper.min.js')}}"></script>
 		<script type="text/javascript" src="{{asset('js/carousel.js')}}"></script>
 		
 		<!-- SwiperEffect Js-->
@@ -173,7 +177,7 @@
 		<script src="{{asset('addCart/js/main.js')}}"></script> <!-- Resource jQuery -->
 		<!--End add to cart-->
 		<script type="text/javascript">
-	    	$("div.alert").delay(2000).slideUp();
+	    	$("div.alert").delay(5000).slideUp();
 	    </script>
 	    <script type="text/javascript" src="{{asset('js/support-views.js')}}"></script>
 	    <script type="text/javascript">

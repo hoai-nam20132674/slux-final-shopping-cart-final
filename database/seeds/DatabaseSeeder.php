@@ -73,5 +73,24 @@ class DatabaseSeeder extends Seeder
                 
             ]
         ]);
+        DB::table('slides_header')->insert([
+
+            [
+                'image'=>'null.png',
+                'blog_url'=>'http://localhost/tin-tuc',
+                'title'=>'slide1'
+            ],
+            [
+                'image'=>'null.png',
+                'blog_url'=>'http://localhost/tin-tuc',
+                'title'=>'slide2'
+            ],
+            [
+                'image'=>'null.png',
+                'blog_url'=>'http://localhost/tin-tuc',
+                'title'=>'slide3'
+            ]
+
+        ]);
     }
 }

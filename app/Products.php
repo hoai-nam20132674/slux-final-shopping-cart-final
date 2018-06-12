@@ -193,4 +193,14 @@ class Products extends Model
 		$product->view  = $product->view +1;
 		$product->save();
 	}
+	public function enableProduct($id){
+		$product = Products::where('id',$id)->get()->first();
+		$product->display = 1;
+		$product->save();
+	}
+	public function disableProduct($id){
+		$product = Products::where('id',$id)->get()->first();
+		$product->display = 0;
+		$product->save();
+	}
 }

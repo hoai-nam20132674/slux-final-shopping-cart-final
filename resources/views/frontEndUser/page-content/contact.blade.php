@@ -15,18 +15,19 @@
 			<br>
 	        <div class="col-md-8">
 	            <div class="well well-sm">
-	                <form>
+	                <form action="{{URL::route('postAddCustumerRegisterN')}}" method="POST">
+	                	<input type="hidden" name="_token" value="{{ csrf_token()}}">
 		                <div class="row">
 		                    <div class="col-md-6">
 		                        <div class="form-group">
 		                            <label for="name">
 		                                Họ tên</label>
-		                            <input type="text" class="form-control" id="name" placeholder="Vui lòng điền họ tên" required="required" />
+		                            <input type="text" class="form-control" name="name" id="name" placeholder="Vui lòng điền họ tên" required="required" />
 		                        </div>
 		                        <div class="form-group">
 		                            <label for="subject">
 		                                Số điện thoại</label>
-		                            <input type="text" class="form-control" id="phone-number" placeholder="Vui lòng nhập số điện thoại" required="required" />
+		                            <input type="text" class="form-control" name="phone_number" id="phone-number" placeholder="Vui lòng nhập số điện thoại" required="required" />
 		                        </div>
 		                        <div class="form-group">
 		                            <label for="email">
@@ -34,7 +35,23 @@
 		                            <div class="input-group">
 		                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
 		                                </span>
-		                                <input type="email" class="form-control" id="email" placeholder="Vui lòng nhập Email" required="required" /></div>
+		                                <input name="error" class="form-control" placeholder="Vui lòng nhập Email" /></div>
+		                        </div>
+		                        <div class="form-group" style="display: none">
+		                            <label for="email">
+		                                Email</label>
+		                            <div class="input-group">
+		                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+		                                </span>
+		                                <input name="error" value="Lỗi khác" class="form-control" placeholder="Vui lòng nhập Email" /></div>
+		                        </div>
+		                        <div class="form-group" style="display: none">
+		                            <label for="email">
+		                                Email</label>
+		                            <div class="input-group">
+		                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+		                                </span>
+		                                <input name="error" value="Dòng máy khác" class="form-control" placeholder="Vui lòng nhập Email" /></div>
 		                        </div>
 		                        
 		                    </div>
@@ -42,7 +59,7 @@
 		                        <div class="form-group">
 		                            <label for="name">
 		                                Tin nhắn</label>
-		                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+		                            <textarea name="message" id="message" class="form-control" rows="11" cols="25"
 		                                placeholder="Message"></textarea>
 		                        </div>
 		                    </div>

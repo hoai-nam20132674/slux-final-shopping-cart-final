@@ -11,10 +11,10 @@
 			<div class="col-md-3 col-sm-6 why-choose-item">
 				<div class="flip3D">
 					<div class="back">
-						<img src="{{asset('images/why-choose3.png')}}" >
+						<img src="{{asset('uploads/images/why_chooses/why-choose3.png')}}" alt="uy tín" >
 					</div>
 					<div class="front">
-						<img src="{{asset('images/why-choose33.png')}}" >
+						<img src="{{asset('uploads/images/why_chooses/why-choose33.png')}}" alt="uy tín">
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -23,10 +23,10 @@
 			<div class="col-md-3 col-sm-6 why-choose-item">
 				<div class="flip3D">
 					<div class="back">
-						<img src="{{asset('images/why-choose2.png')}}" >
+						<img src="{{asset('uploads/images/why_chooses/why-choose2.png')}}" alt="chất lượng" >
 					</div>
 					<div class="front">
-						<img src="{{asset('images/why-choose22.png')}}" >
+						<img src="{{asset('uploads/images/why_chooses/why-choose22.png')}}" alt="chất lượng" >
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -35,10 +35,10 @@
 			<div class="col-md-3 col-sm-6 why-choose-item">
 				<div class="flip3D">
 					<div class="back">
-						<img src="{{asset('images/why-choose1.png')}}" >
+						<img src="{{asset('uploads/images/why_chooses/why-choose1.png')}}" alt="an tâm" >
 					</div>
 					<div class="front">
-						<img src="{{asset('images/why-choose11.png')}}" >
+						<img src="{{asset('uploads/images/why_chooses/why-choose11.png')}}" alt="an tâm" >
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -47,10 +47,10 @@
 			<div class="col-md-3 col-sm-6 why-choose-item">
 				<div class="flip3D">
 					<div class="back">
-						<img src="{{asset('images/why-choose4.png')}}" >
+						<img src="{{asset('uploads/images/why_chooses/why-choose4.png')}}" alt="hỗ trợ 24/7" >
 					</div>
 					<div class="front">
-						<img src="{{asset('images/why-choose44.png')}}" >
+						<img src="{{asset('uploads/images/why_chooses/why-choose44.png')}}" alt="hỗ trợ 24/7" >
 					</div>
 					<div class="clear"></div>
 				</div>

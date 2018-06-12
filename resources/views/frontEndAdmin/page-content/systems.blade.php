@@ -112,6 +112,26 @@
 										<input type="text" class="form-control" name="email" placeholder="email" value="{{$system->email}}">
 									</div>
 									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">facebook</label>
+										<input type="text" class="form-control" name="facebook" placeholder="email" value="{{$system->facebook}}">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">youtube</label>
+										<input type="text" class="form-control" name="youtube" placeholder="email" value="{{$system->youtube}}">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">linkedin</label>
+										<input type="text" class="form-control" name="linkedin" placeholder="email" value="{{$system->linkedin}}">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">twitter</label>
+										<input type="text" class="form-control" name="twitter" placeholder="email" value="{{$system->twitter}}">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">instagram</label>
+										<input type="text" class="form-control" name="instagram" placeholder="email" value="{{$system->instagram}}">
+									</div>
+									<div class="form-group">
 										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">Thời gian làm việc</label>
 										<input type="text" class="form-control" name="time" placeholder="Thời gian làm việc" value="{{$system->time}}">
 									</div>
@@ -202,6 +222,26 @@
 									<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">email</label>
 									<input type="text" class="form-control" name="email" placeholder="email" value="">
 								</div>
+								<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">facebook</label>
+										<input type="text" class="form-control" name="facebook" placeholder="email" value="">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">youtube</label>
+										<input type="text" class="form-control" name="youtube" placeholder="email" value="">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">linkedin</label>
+										<input type="text" class="form-control" name="linkedin" placeholder="email" value="">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">twitter</label>
+										<input type="text" class="form-control" name="twitter" placeholder="email" value="">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">instagram</label>
+										<input type="text" class="form-control" name="instagram" placeholder="email" value="">
+									</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1" style="font-weight: 700;text-transform: uppercase;">Thời gian làm việc</label>
 									<input type="text" class="form-control" name="time" placeholder="Thời gian làm việc" value="">

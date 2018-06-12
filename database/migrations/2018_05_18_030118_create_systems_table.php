@@ -25,6 +25,11 @@ class CreateSystemsTable extends Migration
             $table->string('phone_number');
             $table->string('slogan');
             $table->string('email');
+            $table->string('facebook');
+            $table->string('twitter');
+            $table->string('youtube');
+            $table->string('linkedin');
+            $table->string('instagram');
             $table->string('time');
             $table->longText('script');
 

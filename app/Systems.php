@@ -24,6 +24,11 @@ class Systems extends Model
 		$system->phone_number= $request->phone_number;
 		$system->address = $request->address;
 		$system->email = $request->email;
+		$system->facebook = $request->facebook;
+		$system->youtube = $request->youtube;
+		$system->instagram = $request->instagram;
+		$system->linkedin = $request->linkedin;
+		$system->twitter = $request->twitter;
 		$system->script = $request->script;
 		$system->slogan = $request->slogan;
 		$system->time = $request->time;

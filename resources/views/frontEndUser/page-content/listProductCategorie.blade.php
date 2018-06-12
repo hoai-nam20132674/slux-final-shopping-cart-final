@@ -26,28 +26,9 @@
 					<div class="product-list">
 						<div class="row">
 							@foreach($products as $pr)
-		                        <div class="col-sm-4 product-item">
-		                        	<div class="blog-new-item box-shadows">
-			                            <div class="col-item">
-			                                <div class="photo">
-			                                    <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><img src="{{url('/uploads/images/products/'.$pr["image"])}}" alt="a" /></a>
-			                                </div>
-			                                <div class="info">
-			                                    <div class="row">
-			                                        <div class="price col-md-12" style="text-align: center;">
-			                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
-			                                            <?php
-			                                            	$price = (int)$pr->price;
-			                                            ?>
-			                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
-			                                        </div>
-			                                    </div>
-			                                    <div class="clearfix">
-			                                    </div>
-			                                </div>
-			                            </div>
-									</div>
-		                        </div>
+								<div class="col-md-4 col-sm-4 product-item">
+		                        	@include('frontEndUser.layout.product_item')
+		                    	</div>
 		                    @endforeach
 	                    </div>
 					</div>
@@ -72,24 +53,30 @@
 						<div id='cssmenu'>
 							<ul>
 								<li class='active'><a ><span>Danh mục</span></a></li>
-								<?php 
+								<?php
 									$sideMenus = App\Menu_Sidebar::select()->get();
+									$i=1;
+									$j=0;
+									$array = array();
+									foreach($sideMenus as $cate){
+										$array[$j] = $cate->categorie_id;
+										$j++;
+									}
+									$side_Menus = App\Categories::where('display',1)->whereIn('id',$array)->get();
 								?>
-								@foreach($sideMenus as $sideMenu)
+								@foreach($side_Menus as $sideMenu)
 									<?php
-										$categorie = App\Categories::where('id',$sideMenu->categorie_id)->get()->first();
-										$categories = App\Categories::where('parent_id',$categorie->id)->get();
+										$categorie = App\Categories::where('id',$sideMenu->id)->get()->first();
+										$categories = App\Categories::where('parent_id',$categorie->id)->where('display',1)->get();
 									?>
 									<!-- @if($categorie->parent_id == 0) -->
 										@if(count($categories)>0)
 											<li class='has-sub'><a href='{{url('/'.$categorie["url"])}}'><span>{{$categorie->name}}</span></a>
-												
-													<ul class="">
-														@foreach($categories as $categorie)
-															<li><a href='{{url('/'.$categorie["url"])}}'><span>{{$categorie->name}}</span></a></li>
-														@endforeach
-													</ul>
-												
+												<ul class="">
+													@foreach($categories as $categorie)
+														<li><a href='{{url('/'.$categorie["url"])}}'><span>{{$categorie->name}}</span></a></li>
+													@endforeach
+												</ul>
 											</li>
 										@else
 											<li class='has-sub'><a href='{{url('/'.$categorie["url"])}}'><span>{{$categorie->name}}</span></a></li>
@@ -110,13 +97,7 @@
 											$user = App\User::where('id',$blog->user_id)->get()->first();
 										?>
 					                    <div class="col-md-12 col-sm-4 blog-item" style="margin-bottom: 20px;">
-											<article class="box-shadows"> 
-									          	<figure><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
-									          	<div class="blog-description">
-									            	<h4><a href="{{url('/'.$blog["url"])}}"  style="color: #000;" class="blog-view" id="{{$blog->id}}">{{$blog->title}}</a></h4>
-									            	<footer><a href="{{url('/'.$blog["url"])}}" class="blog-view" id="{{$blog->id}}">Xem chi tiết &raquo;</a></footer>
-									          	</div>
-									        </article>
+											@include('frontEndUser.layout.blog_item')
 										</div>
 									@endforeach
 								</div>

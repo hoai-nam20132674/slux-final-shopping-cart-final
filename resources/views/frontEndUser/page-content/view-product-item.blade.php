@@ -13,13 +13,13 @@
 				            @foreach($categories as $categorie)
 				            	<a href="{{url('/'.$categorie["url"])}}" class="btn btn-default broder-bottom" style="text-transform: uppercase;">{{$categorie->name}}</a>
 				            @endforeach
-				            <a href="{{url('/'.$pr["url"])}}" class="btn btn-default broder-bottom" style="text-transform: uppercase;">{{$pr->name}}</a>
+				            <a href="{{url('/'.$prs["url"])}}" class="btn btn-default broder-bottom" style="text-transform: uppercase;">{{$prs->name}}</a>
 				        </div>
 					</div>
 					<br>
 					<div class="row">
 						<div class="col-md-12">
-							<h1 >{{$pr->name}}</h1>
+							<h1 >{{$prs->name}}</h1>
 						</div>
 					</div>
 					<div class="row">
@@ -56,11 +56,11 @@
 											?>
 											@if($i==0)
 											    <div class="item active srle">
-												    <img id="{{$i}}" src="{{url('/uploads/images/products/'.$prim["url_image"])}}" data-zoom-image="{{url('/uploads/images/products/'.$prim["url_image"])}}" alt="{{$image->alt}}" class="img-responsive">
+												    <img id="{{$i}}" src="{{url('/uploads/images/products/'.$prim["url_image"])}}" data-zoom-image="{{url('/uploads/images/products/'.$prim["url_image"])}}" alt="{{$prs->title}}" class="img-responsive">
 											    </div>
 											@else
 												<div class="item">
-												    <img id="{{$i}}" src="{{url('/uploads/images/products/'.$prim["url_image"])}}" data-zoom-image="{{url('/uploads/images/products/'.$prim["url_image"])}}" alt="{{$image->alt}}" class="img-responsive">
+												    <img id="{{$i}}" src="{{url('/uploads/images/products/'.$prim["url_image"])}}" data-zoom-image="{{url('/uploads/images/products/'.$prim["url_image"])}}" alt="{{$prs->title}}" class="img-responsive">
 											    </div>
 											@endif
 											<?php 
@@ -80,7 +80,7 @@
 
 									<ul class="thumbnails-carousel clearfix">
 										@foreach($product_images as $prim)
-									  		<li><img src="{{url('/uploads/images/products/'.$prim["url_image"])}}" alt="{{$prim->alt}}"></li>
+									  		<li><img src="{{url('/uploads/images/products/'.$prim["url_image"])}}" alt="{{$prs->title}}"></li>
 									  	@endforeach
 									</ul>
 								</div>
@@ -88,14 +88,14 @@
 							</div>
 							<div class="col-md-4 col-sm-4">
 								<div class="panel panel-success">
-									<div class="panel-heading text-center"><span class="fw-700"> Giá: {!!number_format($pr->price)!!} đ</span></div>
+									<div class="panel-heading text-center"><span class="fw-700"> Giá: {!!number_format($prs->price)!!} đ</span></div>
 								</div>
 								<div class="panel panel-default">
 									<div class="panel-heading text-center">Thông tin ưu đãi</div>
-									<div class="panel-body text-center ">{!!$pr->sale!!}</div>
+									<div class="panel-body text-center ">{!!$prs->sale!!}</div>
 								</div>
 								
-								<a href="{{URL::route('add-to-cart',$pr->url)}}"><button type="button" class="btn btn-danger width-100 fw-700">MUA NGAY</button></a>								
+								<a href="{{URL::route('add-to-cart',$prs->url)}}"><button type="button" class="btn btn-danger width-100 fw-700">MUA NGAY</button></a>								
 							</div>
 							<div class="col-md-3 col-sm-3">
 								<div class="panel panel-default">
@@ -103,7 +103,7 @@
 										
 									</div>
 									<div class="panel-body text-center ">
-										{!!$pr->ttsp!!}
+										{!!$prs->ttsp!!}
 
 									</div>
 								</div>
@@ -123,11 +123,11 @@
 								<div class="tab-content">
 								    <div id="gt" class="tab-pane fade in active">
 								    	<h3>Giới thiệu sản phẩm</h3>
-								    	{!!$pr->description!!}
+								    	{!!$prs->description!!}
 								    </div>
 								    <div id="tskt" class="tab-pane fade">
 								    	<h3>Menu 1</h3>
-								    	{!!$pr->tskt!!}
+								    	{!!$prs->tskt!!}
 								    </div>
 								    
 								</div>
@@ -144,13 +144,7 @@
 													$user = App\User::where('id',$blog->user_id)->get()->first();
 												?>
 								                    <div class="col-md-12 col-sm-4 blog-item" style="margin-bottom: 20px;">
-														<article class="box-shadows"> 
-												          	<figure><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view"><img src="{{url('/uploads/images/blogs/'.$blog["image"])}}" alt=""></a></figure>
-												          	<div class="blog-description">
-												            	<h4><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view" style="color: #000;">{{$blog->title}}</a></h4>
-												            	<footer><a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view">Xem chi tiết &raquo;</a></footer>
-												          	</div>
-												        </article>
+														@include('frontEndUser.layout.blog_item')
 													</div>
 
 											@endforeach
@@ -164,7 +158,7 @@
 							<div class="col-md-9">
 								<ul class="nav nav-tabs">
 									<?php 
-										$cate = App\Categories::where('id',$pr->categorie_id)->get()->first();
+										$cate = App\Categories::where('id',$prs->categorie_id)->get()->first();
 									?>
 								    <li class="active" ><a href="{{url('/'.$cate["url"])}}" style="color: #000;" >Xem thêm sản phẩm</a></li>
 								</ul>
@@ -174,28 +168,11 @@
 										<?php 
 											$i=0
 										?>
-				                        @foreach($products as $prs)
+				                        @foreach($products as $pr)
 				                        	@if($i<3)
-												@if($prs->id != $pr->id)
+												@if($pr->id != $prs->id)
 							                        <div class="col-sm-4 product-item" style="margin-bottom: 20px;">
-							                        	<div class="blog-new-item box-shadows">
-								                            <div class="col-item">
-								                                <div class="photo">
-								                                    <a id="{{$prs->id}}" class="product-view" href="{{url('/'.$prs["url"])}}"><img src="{{url('/uploads/images/products/'.$prs["image"])}}" alt="a" /></a>
-								                                </div>
-								                                <div class="info">
-								                                    <div class="row">
-								                                        <div class="price col-md-12" style="text-align: center;">
-								                                            <h5 style="text-transform: uppercase; font-weight: 700;">{{$prs->name}}</h5>
-								                                            <h5 class="price-text-color">{!!number_format($pr->price)!!} đ</h5>
-								                                        </div>
-								                                       
-								                                    </div>
-								                                    <div class="clearfix">
-								                                    </div>
-								                                </div>
-								                            </div>
-								                        </div>
+							                        	@include('frontEndUser.layout.product_item')
 							                        </div>
 							                        <?php 
 							                        	$i++;

@@ -54,14 +54,14 @@
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="enable{{$product->id}}()" id="enable{{$product->id}}" type="checkbox">
+											<input onclick="enable{{$product->id}}()" value="{{$product->id}}" class="enable_product" id="enable{{$product->id}}" type="checkbox">
 										</label>
 									</div>
 								</td>
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="disable{{$product->id}}()" id="disable{{$product->id}}" type="checkbox" checked>
+											<input onclick="disable{{$product->id}}()" class="disable_product" value="{{$product->id}}" id="disable{{$product->id}}" type="checkbox" checked>
 										</label>
 									</div>
 								</td>
@@ -69,14 +69,14 @@
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="enable{{$product->id}}()" id="enable{{$product->id}}" type="checkbox" checked>
+											<input onclick="enable{{$product->id}}()" class="enable_product" value="{{$product->id}}" id="enable{{$product->id}}" type="checkbox" checked>
 										</label>
 									</div>
 								</td>
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="disable{{$product->id}}()" id="disable{{$product->id}}" type="checkbox">
+											<input onclick="disable{{$product->id}}()" value="{{$product->id}}" class="disable_product" id="disable{{$product->id}}" type="checkbox">
 										</label>
 									</div>
 								</td>
@@ -113,6 +113,7 @@
 	
 @endsection()
 @section('js')
+
 	<script type="text/javascript" src="{{asset('admin/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/vendor/tether/js/tether.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
@@ -140,5 +141,6 @@
 	<script type="text/javascript" src="{{asset('admin/js/app.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/js/demo.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/js/tables-datatable.js')}}"></script>
+	<script type="text/javascript" src="{{asset('admin/js/display_product.js')}}"></script>
 	
 @endsection()
