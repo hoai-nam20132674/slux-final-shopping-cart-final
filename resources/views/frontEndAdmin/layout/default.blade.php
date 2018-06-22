@@ -113,6 +113,7 @@
 								<li><a href="{{URL::route('getListVertuError')}}">Sửa chữa Vertu</a></li>
 							</ul>
 						</li>
+						@if(Auth::user()->role ==1)
 						<li class="with-sub">
 							<a href="{{URL::route('getListUser')}}" class="waves-effect  waves-light">
 								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
@@ -120,6 +121,7 @@
 								<span class="s-text">User</span>
 							</a>
 						</li>
+						@endif
 						<li class="menu-title compact-hide">System usage</li>
 						<li class="compact-hide">
 							<div class="progress-widget progress-widget-light">

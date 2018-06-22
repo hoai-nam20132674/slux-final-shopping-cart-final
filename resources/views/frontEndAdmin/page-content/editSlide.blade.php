@@ -41,21 +41,21 @@
 								<input type="text" class="form-control" name="blog_url" placeholder="nhập link bài tin tức" value="{{$slide->blog_url}}" required>
 							</div>
 						
-							<div class="image-blog" style="width: 100%" >
+							<div class="image-blog image-product1" style="width: 100%" >
 								<img class="img-thumbnail" width="100%" src="{{url('/uploads/images/slides/'.$slide["image"])}}">
 							</div>
-							<div class="file-upload">
-							  	<!-- <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button> -->
-							  	<div class="image-upload-wrap">
-								    <input class="file-upload-input" type='file' name="image" onchange="readURL(this);" accept="image/*" />
+							
+							<div class="file-upload edit-image1">	
+							  	<div class="image-upload-wrap image-upload-wrap1">
+								    <input class="file-upload-input file-upload-input1" type='file' name="image" onchange="readURL1(this);" accept="image/*" />
 								    <div class="drag-text">
 								      <h3>Đổi background</h3>
 								    </div>
 							  	</div>
-							  	<div class="file-upload-content">
-							    	<img class="file-upload-image" src="#" alt="your image" />
-							    	<div class="image-title-wrap">
-							      		<button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title text-center">Uploaded Image</span></button>
+							  	<div class="file-upload-content file-upload-content1">
+							    	<img class="file-upload-image file-upload-image1" src="#" alt="your image" />
+							    	<div class="image-title-wrap image-title-wrap1">
+							      		<button type="button" onclick="removeUpload1()" class="remove-image">Remove <span class="image-title image-title1 text-center">Uploaded Image</span></button>
 							    	</div>
 							  	</div>
 							</div>

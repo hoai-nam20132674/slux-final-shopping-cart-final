@@ -39,6 +39,7 @@
 						                                        <i class="glyphicon glyphicon-time"></i>
 						                                        {{ \Carbon\Carbon::createFromTimestamp(strtotime($blog->created_at))->diffForHumans()}}
 						                                        <span class="twitter"> <i class="fa fa-twitter"></i> <a title="người đăng">{{$user->name}}</a></span>
+						                                        <span class="twitter" style="margin-left: 20px;"><i class="icon-eye"></i> <a>{{$blog->view}}</a></span>
 						                                        <br>
 						                                    </small>
 						                                </div>

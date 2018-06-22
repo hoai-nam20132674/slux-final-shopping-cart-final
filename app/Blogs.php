@@ -86,4 +86,14 @@ class Blogs extends Model
 		$blog ->view = $blog->view +1;
 		$blog->save();
 	}
+	public function enableBlog($id){
+		$blog = Blogs::where('id',$id)->get()->first();
+		$blog->display = 1;
+		$blog->save();
+	}
+	public function disableBlog($id){
+		$blog = Blogs::where('id',$id)->get()->first();
+		$blog->display = 0;
+		$blog->save();
+	}
 }

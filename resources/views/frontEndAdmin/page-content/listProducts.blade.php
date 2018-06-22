@@ -47,7 +47,9 @@
 					<tbody>
 						@foreach ($products as $product)
 						<tr>
-							<td>{{$product -> name}}</td>
+							<td>
+								<!-- <img class="img-thumbnail" width="50%" src="{{url('/uploads/images/products/'.$product["image"])}}"> -->
+								{{$product -> name}}</td>
 							<td>{{$product -> price}}</td>
 							<td><a href="{{url('/'.$product["url"])}}" target="_blank">{{$product -> url}}</a></td>
 							@if($product->display ==0)

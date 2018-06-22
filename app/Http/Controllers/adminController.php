@@ -395,4 +395,12 @@ class adminController extends Controller
         $product = new Blogs;
         $product->disableBlog($id);
     }
+    public function enableCategorie($id){
+        $categorie = new Categories;
+        $categorie->enableCategorie($id);
+    }
+    public function disableCategorie($id){
+        $categorie = new Categories;
+        $categorie->disableCategorie($id);
+    }
 }

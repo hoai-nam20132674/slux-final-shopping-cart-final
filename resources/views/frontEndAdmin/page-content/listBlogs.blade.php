@@ -50,14 +50,14 @@
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="enable{{$blog->id}}()" id="enable{{$blog->id}}" type="checkbox">
+											<input onclick="enable{{$blog->id}}()" class="enable_blog" value="{{$blog->id}}" id="enable{{$blog->id}}" type="checkbox">
 										</label>
 									</div>
 								</td>
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="disable{{$blog->id}}()" id="disable{{$blog->id}}" type="checkbox" checked>
+											<input onclick="disable{{$blog->id}}()" class="disable_blog" value="{{$blog->id}}" id="disable{{$blog->id}}" type="checkbox" checked>
 										</label>
 									</div>
 								</td>
@@ -65,14 +65,14 @@
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="enable{{$blog->id}}()" id="enable{{$blog->id}}" type="checkbox" checked>
+											<input onclick="enable{{$blog->id}}()" class="enable_blog" value="{{$blog->id}}" id="enable{{$blog->id}}" type="checkbox" checked>
 										</label>
 									</div>
 								</td>
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="disable{{$blog->id}}()" id="disable{{$blog->id}}" type="checkbox">
+											<input onclick="disable{{$blog->id}}()" class="disable_blog" value="{{$blog->id}}" id="disable{{$blog->id}}" type="checkbox">
 										</label>
 									</div>
 								</td>
@@ -129,5 +129,6 @@
 	<script type="text/javascript" src="{{asset('admin/js/app.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/js/demo.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/js/tables-datatable.js')}}"></script>
+	<script type="text/javascript" src="{{asset('admin/js/display_blog.js')}}"></script>
 	
 @endsection()

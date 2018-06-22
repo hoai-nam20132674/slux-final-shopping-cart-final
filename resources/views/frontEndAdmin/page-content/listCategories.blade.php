@@ -35,8 +35,8 @@
 						<tr>
 							<th>Tên danh mục</th>
 							<th>Url</th>
-							<th>Menu header</th>
-							<th>Menu footer</th>
+							<th class="text-center">enable</th>
+							<th class="text-center">disable</th>
 							<th class="text-center" style="padding: 0px; background: green;">
 								<a href="{{URL::route('addCategorie')}}" title="Thêm danh mục" style="color: green;"><i class="ion-android-add" style=" font-size:30px;color:#fff;"></i></a>
 							</th>
@@ -48,8 +48,48 @@
 						<tr>
 							<td>{{$categories -> name}}</td>
 							<td>{{$categories -> url}}</td>
-							<td></td>
-							<td></td>
+							@if($categories->display ==0)
+								<td class="text-center">
+									<div class="checkbox">
+										<label>
+											<input onclick="enable{{$categories->id}}()" class="enable_categorie" value="{{$categories->id}}" id="enable{{$categories->id}}" type="checkbox">
+										</label>
+									</div>
+								</td>
+								<td class="text-center">
+									<div class="checkbox">
+										<label>
+											<input onclick="disable{{$categories->id}}()" class="disable_categorie" value="{{$categories->id}}" id="disable{{$categories->id}}" type="checkbox" checked>
+										</label>
+									</div>
+								</td>
+							@else
+								<td class="text-center">
+									<div class="checkbox">
+										<label>
+											<input onclick="enable{{$categories->id}}()" class="enable_categorie" value="{{$categories->id}}" id="enable{{$categories->id}}" type="checkbox" checked>
+										</label>
+									</div>
+								</td>
+								<td class="text-center">
+									<div class="checkbox">
+										<label>
+											<input onclick="disable{{$categories->id}}()" class="disable_categorie" value="{{$categories->id}}" id="disable{{$categories->id}}" type="checkbox">
+										</label>
+									</div>
+								</td>
+							@endif
+							<script type="text/javascript">
+								function enable{{$categories->id}}() {
+								    document.getElementById("enable{{$categories->id}}").checked = true;
+								    document.getElementById("disable{{$categories->id}}").checked = false;
+								}
+
+								function disable{{$categories->id}}() {
+								    document.getElementById("disable{{$categories->id}}").checked = true;
+								    document.getElementById("enable{{$categories->id}}").checked = false;
+								}
+							</script>
 							@if($categories->id == 1)
 							<td class="text-center">
 								<a style="pointer-events: none;cursor: default;" onclick="return confirmDelete('Bạn có chắc muốn xóa danh mục này không')" href="{{ URL::route('deleteCategorie',[$categories->id,$categories->parent_id])}}" title="Xóa danh mục"><i class="ion-trash-a" style="width: 100%; font-size: 18px; color: red; margin-right: 5px;"></i></a>
@@ -98,4 +138,5 @@
 	<script type="text/javascript" src="{{asset('admin/js/app.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/js/demo.js')}}"></script>
 	<script type="text/javascript" src="{{asset('admin/js/tables-datatable.js')}}"></script>
+	<script type="text/javascript" src="{{asset('admin/js/display_categorie.js')}}"></script>
 @endsection()

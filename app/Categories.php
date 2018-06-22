@@ -109,5 +109,15 @@ class Categories extends Model
 		$cate ->type = $request->type;
 		$cate ->save();
 	}
+	public function enableCategorie($id){
+		$categorie = Categories::where('id',$id)->get()->first();
+		$categorie->display = 1;
+		$categorie->save();
+	}
+	public function disableCategorie($id){
+		$categorie = Categories::where('id',$id)->get()->first();
+		$categorie->display = 0;
+		$categorie->save();
+	}
 	
 }

@@ -71,8 +71,8 @@
 											<h2 class="full-price">
 												{{$item->price*$item->quantity}}<span>đ</span>
 											</h2>
-											<h2 class="price">
-												{{$item->price}}<span>đ</span>
+											<h2 class="price" price="{{$item->price}}">
+												{!!number_format($item->price)!!}<span> đ</span>
 											</h2>
 											
 										</footer>

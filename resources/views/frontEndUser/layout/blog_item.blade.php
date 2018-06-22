@@ -9,6 +9,10 @@
                         <a href="{{url('/'.$blog["url"])}}" id="{{$blog->id}}" class="blog-view">Xem chi tiết &raquo;</a>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6">
+                        <small style="font-size: 70%; float: right; bottom: 0px;">
+                            <i class="glyphicon glyphicon-time"></i>
+                            {{ \Carbon\Carbon::createFromTimestamp(strtotime($blog->created_at))->diffForHumans()}}
+                        </small>
                     </div>
                 </div>
             </footer>

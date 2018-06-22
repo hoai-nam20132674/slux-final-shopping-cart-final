@@ -41,7 +41,7 @@
 			</div>
 			
 			<div class="col-md-4 col-sm-4">
-				<div class="fb-page" data-href="https://www.facebook.com/cuongluxury.vn/" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cuongluxury.vn/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cuongluxury.vn/">Cuong.vn - Luxury Phone &amp; Watch</a></blockquote></div>
+				<div class="fb-page" data-href="{{$system->facebook}}" data-tabs="timeline" data-width="500" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="{{$system->facebook}}" class="fb-xfbml-parse-ignore"><a href="{{$system->facebook}}">Dịch vụ sửa chữa Nokia 8800, Vertu số 1 tại Việt Nam</a></blockquote></div>
 			</div>
 			<div class="clear"></div>
 		</div>

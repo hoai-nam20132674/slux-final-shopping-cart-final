@@ -131,4 +131,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
 	Route::get('disable-product/{id}',['as'=>'disable-product','uses'=>'adminController@disableProduct']);
 	Route::get('enable-blog/{id}',['as'=>'enable-blog','uses'=>'adminController@enableBlog']);
 	Route::get('disable-blog/{id}',['as'=>'disable-blog','uses'=>'adminController@disableBlog']);
+	Route::get('enable-categorie/{id}',['as'=>'enable-categorie','uses'=>'adminController@enableCategorie']);
+	Route::get('disable-categorie/{id}',['as'=>'disable-categorie','uses'=>'adminController@disableCategorie']);
 });

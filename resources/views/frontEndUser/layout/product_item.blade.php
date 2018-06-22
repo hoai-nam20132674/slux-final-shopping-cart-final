@@ -7,7 +7,7 @@
             <div class="info">
                 <div class="row">
                     <div class="price col-md-12" style="text-align: center;">
-                        <h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5>
+                        <a id="{{$pr->id}}" class="product-view" href="{{url('/'.$pr["url"])}}"><h5 style="text-transform: uppercase; font-weight: 700;">{{$pr->name}}</h5></a>
                         <?php
                         	$price = (int)$pr->price;
                         ?>
